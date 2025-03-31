@@ -43,7 +43,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull PostViewHolder holder, int position) {
-        holder.bind(postList.get(position), this);
+        holder.bind(postList.get(position),this);
     }
 
 
@@ -72,6 +72,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder> {
                 Toast.makeText(context, "Lấy dữ liệu thất bại", Toast.LENGTH_SHORT).show();
             }
         });
+
 
     }
 

@@ -3,7 +3,7 @@ package android.example.yourclassroom.models;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Post implements Serializable {
+public class Post {
     private String idPost;
     private String idUser;
     private String idClass;

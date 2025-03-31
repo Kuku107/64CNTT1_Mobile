@@ -1,5 +1,6 @@
 package android.example.yourclassroom.views.post;
 
+import android.example.yourclassroom.MainActivity;
 import android.example.yourclassroom.R;
 import android.example.yourclassroom.models.Post;
 import android.example.yourclassroom.controllers.PostAdapter;
@@ -42,7 +43,8 @@ public class NewsFeedActivity extends AppCompatActivity {
             popupmenu.getMenuInflater().inflate(R.menu.account_menu, popupmenu.getMenu());
             popupmenu.setOnMenuItemClickListener(item -> {
                 if (item.getItemId() == R.id.item_logout) {
-
+                    Intent myIntent = new Intent(NewsFeedActivity.this, MainActivity.class);
+                    startActivity(myIntent);
                 }
                 return false;
             });

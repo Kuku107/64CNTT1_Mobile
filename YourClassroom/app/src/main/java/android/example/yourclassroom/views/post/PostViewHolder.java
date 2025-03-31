@@ -3,6 +3,7 @@ package android.example.yourclassroom.views.post;
 import android.example.yourclassroom.controllers.PostAdapter;
 import android.example.yourclassroom.models.Post;
 
+
 import android.example.yourclassroom.R;
 import android.view.MenuInflater;
 import android.view.View;
@@ -40,9 +41,9 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
 
         tvContent.setText(post.getContent());
 
-//        if (post.getAttachment() != null && !post.getAttachment().isEmpty()) {
+//        if (attachment.getFilename() != null && !attachment.getFilename().isEmpty()) {
 //            cvAttachment.setVisibility(View.VISIBLE);
-//            tvAttachment.setText(post.getAttachment());
+//            tvAttachment.setText(attachment.getFilename());
 //        } else {
 //            cvAttachment.setVisibility(View.GONE);
 //        }

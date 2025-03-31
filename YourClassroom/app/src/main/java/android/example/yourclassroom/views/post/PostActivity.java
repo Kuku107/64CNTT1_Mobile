@@ -2,7 +2,6 @@ package android.example.yourclassroom.views.post;
 
 import android.example.yourclassroom.controllers.PostAdapter;
 import android.example.yourclassroom.models.Post;
-import android.content.Intent;
 import android.example.yourclassroom.R;
 import android.os.Bundle;
 import android.view.View;
@@ -10,21 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
-
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
-import java.util.Random;
 
 public class PostActivity extends AppCompatActivity {
     private ImageButton imbClose;
