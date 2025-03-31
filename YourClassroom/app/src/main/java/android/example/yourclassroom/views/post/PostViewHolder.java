@@ -2,23 +2,17 @@ package android.example.yourclassroom.views.post;
 
 import android.example.yourclassroom.controllers.PostAdapter;
 import android.example.yourclassroom.models.Post;
-import android.content.Context;
-import android.content.Intent;
+
 import android.example.yourclassroom.R;
 import android.view.MenuInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
 import java.util.Locale;

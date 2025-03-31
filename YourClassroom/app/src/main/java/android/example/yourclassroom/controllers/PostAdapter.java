@@ -1,11 +1,10 @@
 package android.example.yourclassroom.controllers;
 
+import android.example.yourclassroom.models.Post;
+import android.example.yourclassroom.views.post.PostViewHolder;
+
 import android.content.Context;
 import android.example.yourclassroom.R;
-import android.example.yourclassroom.models.Post;
-import android.example.yourclassroom.views.post.NewsFeedActivity;
-import android.example.yourclassroom.views.post.PostActivity;
-import android.example.yourclassroom.views.post.PostViewHolder;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,7 +55,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder> {
 
     public void loadData() {
         FirebaseDatabase database =FirebaseDatabase.getInstance("https://yourclassroom-6d328-default-rtdb.asia-southeast1.firebasedatabase.app/");
-        DatabaseReference myRef = database.getReference("Post");
+        DatabaseReference myRef = database.getReference("posts");
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -78,7 +77,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder> {
 
     public void insertPost(String content) {
         FirebaseDatabase database = FirebaseDatabase.getInstance("https://yourclassroom-6d328-default-rtdb.asia-southeast1.firebasedatabase.app/");
-        DatabaseReference myRef = database.getReference("Post");
+        DatabaseReference myRef = database.getReference("posts");
 
         String newId = myRef.push().getKey();
         Post post = new Post(newId, "1", "1", "1", "Nguyễn Trung Đức", new Date(), content);
@@ -99,7 +98,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder> {
 
         builder.setPositiveButton("Xóa", (dialog, which) -> {
             DatabaseReference myRef = FirebaseDatabase.getInstance("https://yourclassroom-6d328-default-rtdb.asia-southeast1.firebasedatabase.app/")
-                    .getReference("Post").child(String.valueOf(post.getIdPost()));
+                    .getReference("posts").child(String.valueOf(post.getIdPost()));
 
             myRef.removeValue()
                     .addOnSuccessListener(aVoid -> {
