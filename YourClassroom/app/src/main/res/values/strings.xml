@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">YourClassRoom</string>
+    <string name="news_feed">Bảng tin</string>
+    <string name="exercise">Bài tập</string>
+</resources>
