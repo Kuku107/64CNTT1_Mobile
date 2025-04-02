@@ -13,6 +13,10 @@
         android:theme="@style/Theme.YourClassroom"
         tools:targetApi="31">
         <activity
+            android:name=".views.exercise.ExerciseActivity"
+            android:parentActivityName=".MainActivity"
+            android:exported="false"/>
+        <activity
             android:name=".views.post.PostActivity"
             android:parentActivityName=".views.post.NewsFeedActivity"
             android:exported="false"/>
