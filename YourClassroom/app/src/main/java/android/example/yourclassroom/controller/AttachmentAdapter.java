@@ -94,7 +94,6 @@ public class AttachmentAdapter extends RecyclerView.Adapter<AttachmentAdapter.Fi
                         fileRef.getDownloadUrl().addOnSuccessListener(uri -> {
                             String downloadUrl = uri.toString();
                             Toast.makeText(context, "Tải lên thành công: " + downloadUrl, Toast.LENGTH_SHORT).show();
-
                         });
                     })
                     .addOnFailureListener(e -> {
@@ -104,7 +103,6 @@ public class AttachmentAdapter extends RecyclerView.Adapter<AttachmentAdapter.Fi
                     .addOnProgressListener(snapshot -> {
                         double progress = (100.0 * snapshot.getBytesTransferred() / snapshot.getTotalByteCount());
                         Toast.makeText(context, "Đang tải lên: " + (int) progress + "%", Toast.LENGTH_SHORT).show();
-
                     });
         }
     }

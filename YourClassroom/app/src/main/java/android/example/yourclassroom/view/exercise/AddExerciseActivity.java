@@ -14,8 +14,10 @@ import android.example.yourclassroom.utils.EncodeDecodeFile;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.OpenableColumns;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -46,6 +48,8 @@ public class AddExerciseActivity extends AppCompatActivity implements Attachment
 
     private LinearLayout uploadFromLocal;
 
+    private ImageButton btnClose;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +64,7 @@ public class AddExerciseActivity extends AppCompatActivity implements Attachment
         rvListFile = findViewById(R.id.rv_list_item_file);
         edtTitle = findViewById(R.id.add_exercise_title);
         edtInstruction = findViewById(R.id.add_exercise_instruction);
+        btnClose = findViewById(R.id.btn_close_from_submit_assignment);
 
         LinearLayout datePickerContainer = findViewById(R.id.datePickerContainer);
         datePickerContainer.setOnClickListener(v -> showDatePickerDialog());
@@ -74,16 +79,27 @@ public class AddExerciseActivity extends AppCompatActivity implements Attachment
         rvListFile.setAdapter(fileAdapter);
 
         btnAssign.setOnClickListener(v -> {
-            if (fileAdapter.getItemCount() == 0) {
-                Toast.makeText(this, "Vui lòng chọn ít nhất 1 file", Toast.LENGTH_SHORT).show();
+            if (tvDate.getText().toString().isEmpty()) {
+                Toast.makeText(this, "Vui lòng chọn ngày hết hạn", Toast.LENGTH_SHORT).show();
                 return;
             }
+
             String title = edtTitle.getText().toString();
             String instruction = edtInstruction.getText().toString();
             Date expiredDate = new Date(tvDate.getText().toString());
-            Exercise exercise = new Exercise(null, "1", title, instruction, new Date(), expiredDate, "1");
+            String idClass = getIntent().getStringExtra("idClass");
+            String idAuthor = getIntent().getStringExtra("idAuthor");
+            Exercise exercise = new Exercise(null, idClass, title, instruction, new Date(), expiredDate, idAuthor);
             ExerciseAdapter.addExercise(exercise, fileAdapter);
             fileAdapter.pushDataToFirebase();
+            finish();
+        });
+
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
         });
     }
 

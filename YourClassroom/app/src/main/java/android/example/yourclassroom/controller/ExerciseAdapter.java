@@ -31,10 +31,12 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.Exerci
     private List<Exercise> exerciseList;
     private Context context;
     private OnItemClickListener listener;
+    private String idClass;
 
-    public ExerciseAdapter(Context context) {
+    public ExerciseAdapter(Context context, String idClass) {
         this.exerciseList = new ArrayList<>();
         this.context = context;
+        this.idClass = idClass;
     }
 
     public ExerciseAdapter(List<Exercise> exerciseList) {
@@ -101,9 +103,12 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.Exerci
         exerciseRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                exerciseList = new ArrayList<>();
                 for (DataSnapshot exerciseSnapshot : snapshot.getChildren()) {
                     Exercise exercise = exerciseSnapshot.getValue(Exercise.class);
-                    exerciseList.add(exercise);
+                    if (exercise.getIdClass().equals(idClass)) {
+                        exerciseList.add(exercise);
+                    }
                 }
 
                 notifyDataSetChanged();

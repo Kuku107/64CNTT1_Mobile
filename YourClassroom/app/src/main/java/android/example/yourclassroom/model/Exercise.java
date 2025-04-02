@@ -1,8 +1,9 @@
 package android.example.yourclassroom.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Exercise {
+public class Exercise implements Serializable {
     private String id;
     private String idClass;
     private String title;
