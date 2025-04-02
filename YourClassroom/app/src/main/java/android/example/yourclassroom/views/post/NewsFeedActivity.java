@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -20,6 +21,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,15 +45,9 @@ public class NewsFeedActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_news_feed);
 
+
         rcvPost = findViewById(R.id.rcvPost);
         rcvPost.setLayoutManager(new LinearLayoutManager(this));
-
-        postList = new ArrayList<>();
-        postAdapter = new PostAdapter(postList, this);
-        rcvPost.setAdapter(postAdapter);
-
-
-        postAdapter.loadData();
 
 
         imbBack = findViewById(R.id.imb_back);
@@ -57,6 +57,7 @@ public class NewsFeedActivity extends AppCompatActivity {
                 finish();
             }
         });
+
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -86,6 +87,12 @@ public class NewsFeedActivity extends AppCompatActivity {
                 startActivityForResult(intent, REQUEST_CODE_POST);
             }
         });
+
+
+        postList = new ArrayList<>();
+        postAdapter = new PostAdapter(postList, this);
+        rcvPost.setAdapter(postAdapter);
+        postAdapter.loadData();
 
     }
 
