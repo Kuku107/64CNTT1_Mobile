@@ -1,6 +1,7 @@
 package android.example.yourclassroom.model;
 
 public class Submission {
+    private String id;
     private int score;
     private String idExercise;
     private String idUser;
@@ -12,6 +13,14 @@ public class Submission {
         this.score = score;
         this.idExercise = idExercise;
         this.idUser = idUser;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public int getScore() {

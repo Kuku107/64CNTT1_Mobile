@@ -83,29 +83,7 @@ public class AttachmentAdapter extends RecyclerView.Adapter<AttachmentAdapter.Fi
         notifyDataSetChanged();
     }
 
-    public void pushDataToFirebase() {
-        StorageReference storageReference = FirebaseStorage.getInstance().getReference();
-        for (Attachment file : fileList) if (file.getUri() != null) {
-            StorageReference fileRef = storageReference.child("exercises/" + file.getFilename());
-            Uri fileUri = Uri.parse(file.getUri());
-            // Bắt đầu upload
-            fileRef.putFile(fileUri)
-                    .addOnSuccessListener(taskSnapshot -> {
-                        fileRef.getDownloadUrl().addOnSuccessListener(uri -> {
-                            String downloadUrl = uri.toString();
-                            Toast.makeText(context, "Tải lên thành công: " + downloadUrl, Toast.LENGTH_SHORT).show();
-                        });
-                    })
-                    .addOnFailureListener(e -> {
-                        Toast.makeText(context, "Lỗi tải lên: " + e.getMessage(), Toast.LENGTH_SHORT).show();
 
-                    })
-                    .addOnProgressListener(snapshot -> {
-                        double progress = (100.0 * snapshot.getBytesTransferred() / snapshot.getTotalByteCount());
-                        Toast.makeText(context, "Đang tải lên: " + (int) progress + "%", Toast.LENGTH_SHORT).show();
-                    });
-        }
-    }
 
     public List<Attachment> getAttachment() {
         return fileList;

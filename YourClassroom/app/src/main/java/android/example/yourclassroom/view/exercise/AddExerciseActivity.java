@@ -10,6 +10,8 @@ import android.example.yourclassroom.controller.AttachmentAdapter;
 import android.example.yourclassroom.controller.ExerciseAdapter;
 import android.example.yourclassroom.model.Attachment;
 import android.example.yourclassroom.model.Exercise;
+import android.example.yourclassroom.repository.AttachmentRepository;
+import android.example.yourclassroom.repository.ExerciseRepository;
 import android.example.yourclassroom.utils.EncodeDecodeFile;
 import android.net.Uri;
 import android.os.Bundle;
@@ -50,6 +52,11 @@ public class AddExerciseActivity extends AppCompatActivity implements Attachment
 
     private ImageButton btnClose;
 
+    private Intent intent;
+
+    private String idClass;
+    private String idAuthor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,11 +73,16 @@ public class AddExerciseActivity extends AppCompatActivity implements Attachment
         edtInstruction = findViewById(R.id.add_exercise_instruction);
         btnClose = findViewById(R.id.btn_close_from_submit_assignment);
 
+        intent = getIntent();
+        idClass = intent.getStringExtra("idClass");
+        idAuthor = intent.getStringExtra("idAuthor");
+
         LinearLayout datePickerContainer = findViewById(R.id.datePickerContainer);
         datePickerContainer.setOnClickListener(v -> showDatePickerDialog());
 
         uploadFromLocal.setOnClickListener(v -> openFilePicker());
 
+//      Do du lieu vao recycler view
         fileAdapter = new AttachmentAdapter(this);
         fileAdapter.setOnItemClickListener(this);
 
@@ -87,11 +99,9 @@ public class AddExerciseActivity extends AppCompatActivity implements Attachment
             String title = edtTitle.getText().toString();
             String instruction = edtInstruction.getText().toString();
             Date expiredDate = new Date(tvDate.getText().toString());
-            String idClass = getIntent().getStringExtra("idClass");
-            String idAuthor = getIntent().getStringExtra("idAuthor");
             Exercise exercise = new Exercise(null, idClass, title, instruction, new Date(), expiredDate, idAuthor);
-            ExerciseAdapter.addExercise(exercise, fileAdapter);
-            fileAdapter.pushDataToFirebase();
+            ExerciseAdapter.addExercise(exercise, fileAdapter.getAttachment());
+            AttachmentRepository.pushDataToFirebase("exercises", fileAdapter.getAttachment(), this);
             finish();
         });
 
@@ -157,12 +167,12 @@ public class AddExerciseActivity extends AppCompatActivity implements Attachment
 
         if (requestCode == PICK_FILE_REQUEST && resultCode == RESULT_OK && data != null) {
             Uri fileUri = data.getData(); // Lấy URI của file
-            if (fileUri != null) {
-                String fileName = getFileName(fileUri);
-                String dataFile = EncodeDecodeFile.encode(this, fileUri);
-                fileAdapter.addFile(new Attachment(fileUri.toString(), fileName));
-                Toast.makeText(this, dataFile, Toast.LENGTH_SHORT).show();
-            }
+
+            final int takeFlags = Intent.FLAG_GRANT_READ_URI_PERMISSION & (Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+            getContentResolver().takePersistableUriPermission(fileUri, takeFlags);
+
+            String fileName = getFileName(fileUri);
+            fileAdapter.addFile(new Attachment(fileUri.toString(), fileName));
         }
     }
 

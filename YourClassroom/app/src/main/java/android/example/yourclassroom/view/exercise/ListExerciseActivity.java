@@ -1,7 +1,6 @@
 package android.example.yourclassroom.view.exercise;
 
 import android.content.Intent;
-import android.example.yourclassroom.controller.ClassroomAdapter;
 import android.example.yourclassroom.controller.ExerciseAdapter;
 import android.example.yourclassroom.model.Exercise;
 import android.example.yourclassroom.repository.ClassroomRepository;
@@ -15,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.example.yourclassroom.R;
 import android.view.View;
+import android.webkit.ValueCallback;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -26,6 +26,12 @@ public class ListExerciseActivity extends AppCompatActivity implements ExerciseA
     private RecyclerView rvListExercise;
     private ExerciseAdapter exerciseAdapter;
 
+    private Intent intent;
+    private String idClass; // get from intent extra
+    private String idUser; // get from intent extra
+
+    final String[] idTeacher = new String[1];
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,14 +42,14 @@ public class ListExerciseActivity extends AppCompatActivity implements ExerciseA
         btnBack = findViewById(R.id.btn_back_from_list_exercise);
         rvListExercise = findViewById(R.id.rv_list_exercise);
 
-        String idClass = "-OMoA2dc1KxbDwPrnbQG"; // get from intent extra
-        String idUser = "1"; // get from intent extra
-        final String[] idTeacher = new String[1];
+        intent = getIntent();
+        idClass = intent.getStringExtra("idClass");
+        idUser = intent.getStringExtra("idUser");
 
 //        Lay truong idTeacher tu truong idClass
-        ClassroomRepository.getIdTeacherByIdClass(idClass, new ClassroomRepository.OnGetDataListener() {
+        ClassroomRepository.getIdTeacherByIdClass(idClass, new ValueCallback<String>() {
             @Override
-            public void onSuccess(Object value) {
+            public void onReceiveValue(String value) {
                 idTeacher[0] = (String) value;
                 if (value != null) {
 
@@ -54,13 +60,6 @@ public class ListExerciseActivity extends AppCompatActivity implements ExerciseA
                         btnAddExercise.setVisibility(View.GONE);
                     }
                 }
-            }
-
-            @Override
-            public void onFailure(String errorMessage) {
-                Toast.makeText(ListExerciseActivity.this, "Lỗi: " + errorMessage, Toast.LENGTH_SHORT).show();
-                // Mặc định ẩn nút thêm bài tập khi có lỗi
-                btnAddExercise.setVisibility(View.GONE);
             }
         });
 
@@ -89,29 +88,18 @@ public class ListExerciseActivity extends AppCompatActivity implements ExerciseA
 
     @Override
     public void onItemClick(Exercise exercise) {
-        String idClass = "2"; // get from intent extra
-        String idUser = "1"; // get from intent extra
-        final String[] idTeacher = new String[1];
-        ClassroomRepository.getIdTeacherByIdClass(idClass, new ClassroomRepository.OnGetDataListener() {
-            @Override
-            public void onSuccess(Object value) {
-                idTeacher[0] = (String) value;
 
-                // Di chuyển logic kiểm tra và chuyển activity vào đây
-                if (idUser.equals(idTeacher[0])) {
-                    Intent gradeIntent = new Intent(ListExerciseActivity.this, GradeActivity.class);
-                    startActivity(gradeIntent);
-                } else {
-                    Intent submitAssignmentIntent = new Intent(ListExerciseActivity.this, SubmitAssignmentActivity.class);
-                    submitAssignmentIntent.putExtra("exercise", exercise);
-                    startActivity(submitAssignmentIntent);
-                }
-            }
+        if (idUser.equals(idTeacher[0])) {
+            Intent gradeIntent = new Intent(ListExerciseActivity.this, GradeActivity.class);
+            gradeIntent.putExtra("idExercise", exercise.getId());
+            gradeIntent.putExtra("idClass", idClass);
+            startActivity(gradeIntent);
+        } else {
+            Intent submitAssignmentIntent = new Intent(ListExerciseActivity.this, SubmitAssignmentActivity.class);
+            submitAssignmentIntent.putExtra("exercise", exercise);
+            submitAssignmentIntent.putExtra("idUser", idUser);
+            startActivity(submitAssignmentIntent);
+        }
 
-            @Override
-            public void onFailure(String errorMessage) {
-                Toast.makeText(ListExerciseActivity.this, "Lỗi: " + errorMessage, Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 }

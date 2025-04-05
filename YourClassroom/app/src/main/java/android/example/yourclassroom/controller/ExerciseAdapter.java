@@ -4,6 +4,7 @@ import android.content.Context;
 import android.example.yourclassroom.R;
 import android.example.yourclassroom.model.Attachment;
 import android.example.yourclassroom.model.Exercise;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -92,43 +94,42 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.Exerci
             this.container = itemView.findViewById(R.id.container_item_exercise);
         }
     }
-
     public interface OnItemClickListener {
         void onItemClick(Exercise exercise);
     }
-
     public void loadExercise() {
         FirebaseDatabase database = FirebaseDatabase.getInstance("https://yourclassroom-6d328-default-rtdb.asia-southeast1.firebasedatabase.app/");
         DatabaseReference exerciseRef = database.getReference("exercises");
         exerciseRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                exerciseList = new ArrayList<>();
-                for (DataSnapshot exerciseSnapshot : snapshot.getChildren()) {
-                    Exercise exercise = exerciseSnapshot.getValue(Exercise.class);
-                    if (exercise.getIdClass().equals(idClass)) {
+                exerciseList.clear();
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    Exercise exercise = dataSnapshot.getValue(Exercise.class);
+                    if (exercise != null && exercise.getIdClass().equals(idClass)) {
+                        exercise.setId(dataSnapshot.getKey());
                         exerciseList.add(exercise);
                     }
                 }
-
                 notifyDataSetChanged();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                Log.e("ExerciseAdapter", "Failed to read exercise data", error.toException());
+                Toast.makeText(context, "Failed to load exercises", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    public static void addExercise(Exercise exercise, AttachmentAdapter attachmentAdapter) {
+    public static void addExercise(Exercise exercise, List<Attachment> attachmentsList) {
         FirebaseDatabase database = FirebaseDatabase.getInstance("https://yourclassroom-6d328-default-rtdb.asia-southeast1.firebasedatabase.app/");
         DatabaseReference exerciseRef = database.getReference("exercises");
 
         String idExercise = exerciseRef.push().getKey();
+        exercise.setId(idExercise);
 
         DatabaseReference attachmentRef = database.getReference("attachments");
-        List<Attachment> attachmentsList = attachmentAdapter.getAttachment();
         for (Attachment attachment : attachmentsList) {
             String idAttachment = attachmentRef.push().getKey();
             attachment.setId(idAttachment);

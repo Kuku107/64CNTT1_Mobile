@@ -24,7 +24,7 @@
             app:srcCompat="@drawable/ic_account" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/grade_item_student_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -35,11 +35,11 @@
         <View
             android:layout_width="1dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="130dp"
+            android:layout_marginLeft="50dp"
             android:background="#000000" />
 
         <EditText
-            android:id="@+id/editTextNumber"
+            android:id="@+id/grade_item_student_score"
             android:layout_width="28dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -71,6 +71,7 @@
         android:background="#000000" />
 
     <ListView
+        android:id="@+id/grade_item_list_view"
         android:layout_width="match_parent"
         android:layout_height="196dp" />
 </LinearLayout>
