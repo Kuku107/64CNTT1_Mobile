@@ -82,7 +82,7 @@ public class SubmitAssignmentActivity extends AppCompatActivity implements Attac
 
 //        Gan gia tri vao cac TextView va ListView
         title.setText(exercise.getTitle());
-        UserRepository.getNameById(exercise.getIdAuthor(), new ValueCallback<String>() {
+        UserRepository.getNameById(idUser, new ValueCallback<String>() {
             @Override
             public void onReceiveValue(String value) {
                 author.setText(value);
@@ -127,7 +127,18 @@ public class SubmitAssignmentActivity extends AppCompatActivity implements Attac
         });
 
 //        Do du lieu vao recycler view
-        assignmentList = new AttachmentAdapter(this);
+        List<Attachment> assignmentSubmitted = new ArrayList<>();
+        assignmentList = new AttachmentAdapter(this, assignmentSubmitted);
+        AttachmentRepository.getAllAttachmentByIdUser(idUser, new ValueCallback<Attachment>() {
+            @Override
+            public void onReceiveValue(Attachment value) {
+                if (value != null && value.getIdExercise().equals(exercise.getId())) {
+                    assignmentSubmitted.add(value);
+                    assignmentList.notifyDataSetChanged();
+                }
+            }
+        });
+
         assignmentList.setOnItemClickListener(this);
 
         assignmentRecyclerView.setLayoutManager(new LinearLayoutManager(this));

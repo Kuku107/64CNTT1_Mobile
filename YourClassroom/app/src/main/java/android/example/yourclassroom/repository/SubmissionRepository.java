@@ -59,4 +59,53 @@ public class SubmissionRepository {
             }
         });
     }
+
+    public static void updateScore(String idUser, String idExercise, String score) {
+        DatabaseReference submissionRef = database.getReference("submissions");
+        submissionRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot snapShot : snapshot.getChildren()) {
+                    Submission submission = snapShot.getValue(Submission.class);
+                    if (submission != null && submission.getIdExercise().equals(idExercise) && submission.getIdUser().equals(idUser)) {
+                        submission.setScore(Integer.parseInt(score));
+                        submissionRef.child(submission.getId()).setValue(submission);
+                        return;
+                    }
+                }
+//                Hoc sinh chua nop bai
+                String submissionId = submissionRef.push().getKey();
+                Submission newSubmission = new Submission( Integer.parseInt(score), idExercise, idUser);
+                newSubmission.setId(submissionId);
+                submissionRef.child(submissionId).setValue(newSubmission);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+//    public static void getScore(String idUser, String idExercise, ValueCallback<Integer> callBack) {
+//        DatabaseReference submissionRef = database.getReference("submissions");
+//        submissionRef.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                for (DataSnapshot snapShot : snapshot.getChildren()) {
+//                    Submission submission = snapShot.getValue(Submission.class);
+//                    if (submission != null && submission.getIdExercise().equals(idExercise) && submission.getIdUser().equals(idUser)) {
+//                        callBack.onReceiveValue(submission.getScore());
+//                        return;
+//                    }
+//                }
+//                callBack.onReceiveValue(0); // No submission found
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
+//    }
 }

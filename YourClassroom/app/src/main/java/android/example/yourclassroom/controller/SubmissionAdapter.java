@@ -8,12 +8,14 @@ import android.content.Intent;
 import android.example.yourclassroom.R;
 import android.example.yourclassroom.model.Attachment;
 import android.example.yourclassroom.model.User;
+import android.example.yourclassroom.repository.SubmissionRepository;
 import android.example.yourclassroom.view.exercise.GradeActivity;
 import android.example.yourclassroom.view.exercise.SubmitAssignmentActivity;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.ValueCallback;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -31,12 +33,14 @@ public class SubmissionAdapter extends RecyclerView.Adapter<SubmissionAdapter.Su
     private Context context;
     private List<User> students;
     private Map<String, List<Attachment>> studentAttachments;
+    private String idExercise;
 
 
-    public SubmissionAdapter(Context context, List<User> students, Map<String, List<Attachment>> studentAttachments) {
+    public SubmissionAdapter(Context context, List<User> students, Map<String, List<Attachment>> studentAttachments, String idExercise) {
         this.context = context;
         this.students = students;
         this.studentAttachments = studentAttachments;
+        this.idExercise = idExercise;
     }
 
     @NonNull
@@ -52,7 +56,12 @@ public class SubmissionAdapter extends RecyclerView.Adapter<SubmissionAdapter.Su
         List<Attachment> attachments = studentAttachments.get(student.getId());
 
         holder.name.setText(student.getFullname());
-        holder.score.setText("0");
+        SubmissionRepository.getScoreByIdExerciseAndIdUser(idExercise, student.getId(), new ValueCallback<Integer>() {
+            @Override
+            public void onReceiveValue(Integer value) {
+                holder.score.setText(String.valueOf(value));
+            }
+        });
         List<String> attachmentNames = new ArrayList<>();
         if (attachments != null) {
             for (Attachment attachment : attachments) {

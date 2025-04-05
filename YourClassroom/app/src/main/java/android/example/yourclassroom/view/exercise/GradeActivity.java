@@ -5,6 +5,7 @@ import android.example.yourclassroom.controller.SubmissionAdapter;
 import android.example.yourclassroom.model.Attachment;
 import android.example.yourclassroom.model.User;
 import android.example.yourclassroom.repository.AttachmentRepository;
+import android.example.yourclassroom.repository.SubmissionRepository;
 import android.example.yourclassroom.repository.UserRepository;
 import android.os.Bundle;
 
@@ -19,7 +20,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.example.yourclassroom.R;
 import android.util.Log;
+import android.view.View;
 import android.webkit.ValueCallback;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -55,7 +58,7 @@ public class GradeActivity extends AppCompatActivity {
 //        Lấy danh sách học sinh
         List<User> students = new ArrayList<>();
         Map<String, List<Attachment>> studentAttachments = new HashMap<>();
-        SubmissionAdapter adapter = new SubmissionAdapter(this, students, studentAttachments);
+        SubmissionAdapter adapter = new SubmissionAdapter(this, students, studentAttachments, idExercise);
 
         // Lấy danh sách id của học sinh trong lớp học
         UserRepository.getAllUserByIdClass(idClass, new ValueCallback<String>() {
@@ -88,6 +91,20 @@ public class GradeActivity extends AppCompatActivity {
         rvGrading.setLayoutManager(new LinearLayoutManager(this));
         rvGrading.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         rvGrading.setAdapter(adapter);
+
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                for (int i = 0; i < students.size(); ++i) {
+                    View itemView = rvGrading.getChildAt(i);
+                    EditText scoreEdt = itemView.findViewById(R.id.grade_item_student_score);
+                    String score = scoreEdt.getText().toString();
+                    SubmissionRepository.updateScore(students.get(i).getId(), idExercise, score);
+//                    Log.d("GradeActivity", "Student name: " + students.get(i).getFullname() + ", Score: " + score);
+                }
+                finish();
+            }
+        });
 
         btnClose.setOnClickListener(v -> finish());
     }

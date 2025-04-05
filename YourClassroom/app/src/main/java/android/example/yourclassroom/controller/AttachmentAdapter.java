@@ -32,7 +32,8 @@ public class AttachmentAdapter extends RecyclerView.Adapter<AttachmentAdapter.Fi
         this.context = context;
     }
 
-    public AttachmentAdapter(List<Attachment> fileList) {
+    public AttachmentAdapter(Context context, List<Attachment> fileList) {
+        this.context = context;
         this.fileList = fileList;
     }
 
