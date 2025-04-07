@@ -41,12 +41,12 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
 
         tvContent.setText(post.getContent());
 
-//        if (attachment.getFilename() != null && !attachment.getFilename().isEmpty()) {
-//            cvAttachment.setVisibility(View.VISIBLE);
-//            tvAttachment.setText(attachment.getFilename());
-//        } else {
-//            cvAttachment.setVisibility(View.GONE);
-//        }
+        if (post.getIdExercise() != null && !post.getIdExercise().isEmpty()) {
+            cvAttachment.setVisibility(View.VISIBLE);
+            tvAttachment.setText("BaiTapTuan1.pdf");
+        } else {
+            cvAttachment.setVisibility(View.GONE);
+        }
 
         imvMore.setOnClickListener(v -> {
             PopupMenu popup = new PopupMenu(v.getContext(), v);
@@ -63,6 +63,7 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
 
             popup.show();
         });
+
     }
 
 }

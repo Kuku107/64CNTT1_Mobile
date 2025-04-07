@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Post {
     private String idPost;
-    private String idUser;
+    private String idTeacher;
     private String idClass;
     private String idExercise = null;
     private String author;
@@ -15,9 +15,9 @@ public class Post {
     public Post() {
     }
 
-    public Post(String idPost, String idUser, String idClass, String idExercise, String author, Date createAt, String content) {
+    public Post(String idPost, String idTeacher, String idClass, String idExercise, String author, Date createAt, String content) {
         this.idPost = idPost;
-        this.idUser = idUser;
+        this.idTeacher = idTeacher;
         this.idClass = idClass;
         this.idExercise = idExercise;
         this.author = author;
@@ -33,12 +33,12 @@ public class Post {
         this.idPost = idPost;
     }
 
-    public String getIdUser() {
-        return idUser;
+    public String getIdTeacher() {
+        return idTeacher;
     }
 
-    public void setIdUser(String idUser) {
-        this.idUser = idUser;
+    public void setIdTeacher(String idTeacher) {
+        this.idTeacher = idTeacher;
     }
 
     public String getIdClass() {

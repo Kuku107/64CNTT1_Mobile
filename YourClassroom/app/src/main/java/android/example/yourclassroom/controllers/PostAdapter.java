@@ -44,6 +44,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull PostViewHolder holder, int position) {
         holder.bind(postList.get(position),this);
+
     }
 
 
@@ -53,8 +54,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder> {
     }
 
 
-    public void loadData() {
-        FirebaseDatabase database =FirebaseDatabase.getInstance("https://yourclassroom-6d328-default-rtdb.asia-southeast1.firebasedatabase.app/");
+    public void getAllPost() {
+        FirebaseDatabase database =  FirebaseDatabase.getInstance("https://yourclassroom-6d328-default-rtdb.asia-southeast1.firebasedatabase.app/");
         DatabaseReference myRef = database.getReference("posts");
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -76,7 +77,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder> {
 
     }
 
-    public void insertPost(String content) {
+    public void createPost(String content) {
         FirebaseDatabase database = FirebaseDatabase.getInstance("https://yourclassroom-6d328-default-rtdb.asia-southeast1.firebasedatabase.app/");
         DatabaseReference myRef = database.getReference("posts");
 
@@ -114,5 +115,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder> {
 
         builder.show();
     }
+
+
 }
 

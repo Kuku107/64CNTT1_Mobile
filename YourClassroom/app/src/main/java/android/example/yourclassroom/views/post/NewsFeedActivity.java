@@ -4,7 +4,6 @@ import android.example.yourclassroom.R;
 import android.example.yourclassroom.models.Post;
 import android.example.yourclassroom.controllers.PostAdapter;
 import android.content.Intent;
-import android.example.yourclassroom.views.exercise.ExerciseActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -49,24 +48,24 @@ public class NewsFeedActivity extends AppCompatActivity {
         });
 
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                int itemId = item.getItemId();
-                if (itemId == R.id.menu_item_news_feed) {
-                    rcvPost.smoothScrollToPosition(0);
-                    return true;
-                } else if (itemId == R.id.menu_item_exercise) {
-                    Intent intent = new Intent(NewsFeedActivity.this, ExerciseActivity.class);
-                    startActivity(intent);
-                    finish();
-                    return true;
-                }
-                return false;
-            }
-
-        });
+//        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
+//        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+//            @Override
+//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//                int itemId = item.getItemId();
+//                if (itemId == R.id.menu_item_news_feed) {
+//                    rcvPost.smoothScrollToPosition(0);
+//                    return true;
+//                } else if (itemId == R.id.menu_item_exercise) {
+//                    Intent intent = new Intent(NewsFeedActivity.this, ExerciseActivity.class);
+//                    startActivity(intent);
+//                    finish();
+//                    return true;
+//                }
+//                return false;
+//            }
+//
+//        });
 
 
         cvPost = findViewById(R.id.cv_post);
@@ -82,7 +81,10 @@ public class NewsFeedActivity extends AppCompatActivity {
         postList = new ArrayList<>();
         postAdapter = new PostAdapter(postList, this);
         rcvPost.setAdapter(postAdapter);
-        postAdapter.loadData();
+        postAdapter.getAllPost();
+
+
+
 
     }
 

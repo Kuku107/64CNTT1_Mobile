@@ -45,7 +45,7 @@ public class PostActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String content = edtPostContent.getText().toString().trim();
                 if (!content.isEmpty()) {
-                    postAdapter.insertPost(content);
+                    postAdapter.createPost(content);
                     finish();
                 } else {
                     Toast.makeText(PostActivity.this, "Nội dung không được để trống!", Toast.LENGTH_SHORT).show();
