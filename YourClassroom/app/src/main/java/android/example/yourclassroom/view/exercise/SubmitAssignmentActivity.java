@@ -36,6 +36,7 @@ import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -144,6 +145,14 @@ public class SubmitAssignmentActivity extends AppCompatActivity implements Attac
         assignmentRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         assignmentRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         assignmentRecyclerView.setAdapter(assignmentList);
+
+        if (new Date().getTime() > exercise.getExpired().getTime()) {
+            addBtn.setEnabled(false);
+            addBtn.setVisibility(View.INVISIBLE);
+
+            submitBtn.setEnabled(false);
+            submitBtn.setVisibility(View.INVISIBLE);
+        }
 
 //        Xu ly su kien click nut add
         addBtn.setOnClickListener(v -> {

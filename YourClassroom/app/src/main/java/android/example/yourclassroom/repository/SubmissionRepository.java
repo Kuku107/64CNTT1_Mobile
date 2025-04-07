@@ -86,26 +86,4 @@ public class SubmissionRepository {
             }
         });
     }
-
-//    public static void getScore(String idUser, String idExercise, ValueCallback<Integer> callBack) {
-//        DatabaseReference submissionRef = database.getReference("submissions");
-//        submissionRef.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                for (DataSnapshot snapShot : snapshot.getChildren()) {
-//                    Submission submission = snapShot.getValue(Submission.class);
-//                    if (submission != null && submission.getIdExercise().equals(idExercise) && submission.getIdUser().equals(idUser)) {
-//                        callBack.onReceiveValue(submission.getScore());
-//                        return;
-//                    }
-//                }
-//                callBack.onReceiveValue(0); // No submission found
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
-//    }
 }

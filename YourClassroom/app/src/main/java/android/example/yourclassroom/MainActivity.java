@@ -19,11 +19,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         String idClass = "-OMoA2dc1KxbDwPrnbQG";
-        String idUser = "1";
+        String idUser = "3";
+        String idTeacher = "1";
 
         Intent ListExerciseIntent = new Intent(this, ListExerciseActivity.class);
         ListExerciseIntent.putExtra("idClass", idClass);
         ListExerciseIntent.putExtra("idUser", idUser);
+        ListExerciseIntent.putExtra("idTeacher", idTeacher);
         startActivity(ListExerciseIntent);
     }
 }

@@ -3,7 +3,6 @@ package android.example.yourclassroom.view.exercise;
 import android.content.Intent;
 import android.example.yourclassroom.controller.ExerciseAdapter;
 import android.example.yourclassroom.model.Exercise;
-import android.example.yourclassroom.repository.ClassroomRepository;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -13,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.example.yourclassroom.R;
+import android.util.Log;
 import android.view.View;
 import android.webkit.ValueCallback;
 import android.widget.Button;
@@ -29,8 +29,7 @@ public class ListExerciseActivity extends AppCompatActivity implements ExerciseA
     private Intent intent;
     private String idClass; // get from intent extra
     private String idUser; // get from intent extra
-
-    final String[] idTeacher = new String[1];
+    private String idTeacher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,23 +44,14 @@ public class ListExerciseActivity extends AppCompatActivity implements ExerciseA
         intent = getIntent();
         idClass = intent.getStringExtra("idClass");
         idUser = intent.getStringExtra("idUser");
+        idTeacher = intent.getStringExtra("idTeacher");
 
-//        Lay truong idTeacher tu truong idClass
-        ClassroomRepository.getIdTeacherByIdClass(idClass, new ValueCallback<String>() {
-            @Override
-            public void onReceiveValue(String value) {
-                idTeacher[0] = (String) value;
-                if (value != null) {
 
-                    // Kiểm tra quyền để hiển thị nút thêm bài tập
-                    if (idUser.equals(idTeacher[0])) {
-                        btnAddExercise.setVisibility(View.VISIBLE);
-                    } else {
-                        btnAddExercise.setVisibility(View.GONE);
-                    }
-                }
-            }
-        });
+        if (idUser.equals(idTeacher)) {
+            btnAddExercise.setVisibility(View.VISIBLE);
+        } else {
+            btnAddExercise.setVisibility(View.GONE);
+        }
 
 //        Hien thi lish bai tap tu idClass
         exerciseAdapter = new ExerciseAdapter(this, idClass);
@@ -89,7 +79,7 @@ public class ListExerciseActivity extends AppCompatActivity implements ExerciseA
     @Override
     public void onItemClick(Exercise exercise) {
 
-        if (idUser.equals(idTeacher[0])) {
+        if (idUser.equals(idTeacher)) {
             Intent gradeIntent = new Intent(ListExerciseActivity.this, GradeActivity.class);
             gradeIntent.putExtra("idExercise", exercise.getId());
             gradeIntent.putExtra("idClass", idClass);

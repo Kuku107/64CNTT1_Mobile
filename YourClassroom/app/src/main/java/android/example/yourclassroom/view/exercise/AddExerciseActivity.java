@@ -99,6 +99,12 @@ public class AddExerciseActivity extends AppCompatActivity implements Attachment
             String title = edtTitle.getText().toString();
             String instruction = edtInstruction.getText().toString();
             Date expiredDate = new Date(tvDate.getText().toString());
+
+            if (expiredDate.before(new Date())) {
+                Toast.makeText(this, "Ngày hết hạn không hợp lệ", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             Exercise exercise = new Exercise(null, idClass, title, instruction, new Date(), expiredDate, idAuthor);
             ExerciseAdapter.addExercise(exercise, fileAdapter.getAttachment());
             AttachmentRepository.pushDataToFirebase("exercises", fileAdapter.getAttachment(), this);
