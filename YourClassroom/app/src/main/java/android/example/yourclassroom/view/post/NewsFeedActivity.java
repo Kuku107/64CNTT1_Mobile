@@ -1,8 +1,8 @@
-package android.example.yourclassroom.views.post;
+package android.example.yourclassroom.view.post;
 
 import android.example.yourclassroom.R;
 import android.example.yourclassroom.model.Post;
-import android.example.yourclassroom.controllers.PostAdapter;
+import android.example.yourclassroom.controller.PostAdapter;
 import android.content.Intent;
 import android.example.yourclassroom.repository.ClassroomRepository;
 import android.example.yourclassroom.view.exercise.ListExerciseActivity;

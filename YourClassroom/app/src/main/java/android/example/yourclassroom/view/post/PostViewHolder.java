@@ -1,10 +1,8 @@
-package android.example.yourclassroom.views.post;
-
-import static androidx.core.content.ContextCompat.startActivity;
+package android.example.yourclassroom.view.post;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
-import android.example.yourclassroom.controllers.PostAdapter;
+import android.example.yourclassroom.controller.PostAdapter;
 import android.example.yourclassroom.model.Attachment;
 import android.example.yourclassroom.model.Post;
 
@@ -25,7 +23,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.text.SimpleDateFormat;

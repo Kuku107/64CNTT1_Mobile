@@ -11,13 +11,13 @@ import android.example.yourclassroom.controller.ExerciseAdapter;
 import android.example.yourclassroom.model.Attachment;
 import android.example.yourclassroom.model.Exercise;
 import android.example.yourclassroom.repository.AttachmentRepository;
-import android.example.yourclassroom.repository.ExerciseRepository;
+import android.example.yourclassroom.repository.ClassroomRepository;
 import android.example.yourclassroom.repository.PostRepository;
-import android.example.yourclassroom.utils.EncodeDecodeFile;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.OpenableColumns;
 import android.view.View;
+import android.webkit.ValueCallback;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -57,6 +57,7 @@ public class AddExerciseActivity extends AppCompatActivity implements Attachment
 
     private String idClass;
     private String idAuthor;
+    private TextView classNametv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +66,9 @@ public class AddExerciseActivity extends AppCompatActivity implements Attachment
         setContentView(R.layout.activity_add_exercise);
         setSupportActionBar(findViewById(R.id.toolbar));
 
+
 //        Binding
+        classNametv = findViewById(R.id.add_exercise_className);
         uploadFromLocal = findViewById(R.id.upload_from_local);
         tvDate = findViewById(R.id.tv_date);
         btnAssign = findViewById(R.id.btn_assign_exercise);
@@ -83,6 +86,14 @@ public class AddExerciseActivity extends AppCompatActivity implements Attachment
 
         uploadFromLocal.setOnClickListener(v -> openFilePicker());
 
+//        Lay ten lop
+        ClassroomRepository.getClassNameByIdClass(idClass, new ValueCallback<String>() {
+            @Override
+            public void onReceiveValue(String value) {
+                classNametv.setText(value);
+            }
+        });
+
 //      Do du lieu vao recycler view
         fileAdapter = new AttachmentAdapter(this);
         fileAdapter.setOnItemClickListener(this);
@@ -99,7 +110,7 @@ public class AddExerciseActivity extends AppCompatActivity implements Attachment
 
             String title = edtTitle.getText().toString();
             String instruction = edtInstruction.getText().toString();
-            Date expiredDate = new Date(tvDate.getText().toString());
+            Date expiredDate = calendar.getTime();
 
             if (expiredDate.before(new Date())) {
                 Toast.makeText(this, "Ngày hết hạn không hợp lệ", Toast.LENGTH_SHORT).show();

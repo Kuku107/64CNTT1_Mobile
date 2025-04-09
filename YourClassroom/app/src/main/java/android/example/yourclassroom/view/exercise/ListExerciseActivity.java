@@ -3,7 +3,7 @@ package android.example.yourclassroom.view.exercise;
 import android.content.Intent;
 import android.example.yourclassroom.controller.ExerciseAdapter;
 import android.example.yourclassroom.model.Exercise;
-import android.example.yourclassroom.views.post.NewsFeedActivity;
+import android.example.yourclassroom.view.post.NewsFeedActivity;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -14,13 +14,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.example.yourclassroom.R;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.webkit.ValueCallback;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 

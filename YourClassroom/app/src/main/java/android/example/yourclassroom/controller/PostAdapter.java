@@ -1,7 +1,7 @@
-package android.example.yourclassroom.controllers;
+package android.example.yourclassroom.controller;
 
 import android.example.yourclassroom.model.Post;
-import android.example.yourclassroom.views.post.PostViewHolder;
+import android.example.yourclassroom.view.post.PostViewHolder;
 
 import android.content.Context;
 import android.example.yourclassroom.R;

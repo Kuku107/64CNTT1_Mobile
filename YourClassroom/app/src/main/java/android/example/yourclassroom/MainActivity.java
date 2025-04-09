@@ -2,7 +2,6 @@ package android.example.yourclassroom;
 
 import android.content.Intent;
 import android.example.yourclassroom.view.exercise.ListExerciseActivity;
-import android.example.yourclassroom.views.post.NewsFeedActivity;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -17,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         String idClass = "-ONFpWG_4Kch5GD26f7x";
-        String idUser = "4";
+        String idUser = "1";
         String idTeacher = "1";
 
         Intent ListExerciseIntent = new Intent(this, ListExerciseActivity.class);

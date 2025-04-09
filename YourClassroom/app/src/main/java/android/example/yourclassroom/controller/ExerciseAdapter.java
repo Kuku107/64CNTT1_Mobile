@@ -62,8 +62,8 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.Exerci
 
 //        Binding
         holder.nameExercise.setText(exercise.getTitle());
-        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
-        holder.expiredDate.setText(format.format(exercise.getExpired()));
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+        holder.expiredDate.setText(sdf.format(exercise.getExpired()));
 
         holder.container.setOnClickListener(new View.OnClickListener() {
             @Override
