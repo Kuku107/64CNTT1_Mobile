@@ -77,12 +77,12 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder> {
 
     }
 
-    public void createPost(String content) {
+    public void createPost(String content, String idTeacher, String idClass) {
         FirebaseDatabase database = FirebaseDatabase.getInstance("https://yourclassroom-6d328-default-rtdb.asia-southeast1.firebasedatabase.app/");
         DatabaseReference myRef = database.getReference("posts");
 
         String newId = myRef.push().getKey();
-        Post post = new Post(newId, "1", "1", "1", "Nguyễn Trung Đức", new Date(), content);
+        Post post = new Post(newId, idTeacher, idClass, null, "Nguyễn Trung Đức", new Date(), content);
 
         myRef.child(newId).setValue(post, new DatabaseReference.CompletionListener() {
             @Override
@@ -116,6 +116,19 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder> {
         builder.show();
     }
 
-
+//    public void createPostWithExercise(String content, String idTeacher, String idClass, String idExercise) {
+//        FirebaseDatabase database = FirebaseDatabase.getInstance("https://yourclassroom-6d328-default-rtdb.asia-southeast1.firebasedatabase.app/");
+//        DatabaseReference myRef = database.getReference("posts");
+//
+//        String newId = myRef.push().getKey();
+//        Post post = new Post(newId, idTeacher, idClass, idExercise, "Nguyễn Trung Đức", new Date(), content);
+//
+//        myRef.child(newId).setValue(post, new DatabaseReference.CompletionListener() {
+//            @Override
+//            public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+//                Toast.makeText(context, "Thêm thành công!", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//    }
 }
 

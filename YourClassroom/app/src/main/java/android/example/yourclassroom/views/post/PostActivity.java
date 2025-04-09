@@ -43,9 +43,11 @@ public class PostActivity extends AppCompatActivity {
         btnPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String idTeacher = "1";
+                String idClass = "1";
                 String content = edtPostContent.getText().toString().trim();
                 if (!content.isEmpty()) {
-                    postAdapter.createPost(content);
+                    postAdapter.createPost(content, idTeacher, idClass);
                     finish();
                 } else {
                     Toast.makeText(PostActivity.this, "Nội dung không được để trống!", Toast.LENGTH_SHORT).show();
