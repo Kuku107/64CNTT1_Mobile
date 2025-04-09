@@ -3,7 +3,6 @@ package android.example.yourclassroom.repository;
 import android.content.Context;
 import android.example.yourclassroom.model.Attachment;
 import android.net.Uri;
-import android.util.Log;
 import android.webkit.ValueCallback;
 import android.widget.Toast;
 

@@ -12,6 +12,7 @@ import android.example.yourclassroom.model.Attachment;
 import android.example.yourclassroom.model.Exercise;
 import android.example.yourclassroom.repository.AttachmentRepository;
 import android.example.yourclassroom.repository.ExerciseRepository;
+import android.example.yourclassroom.repository.PostRepository;
 import android.example.yourclassroom.utils.EncodeDecodeFile;
 import android.net.Uri;
 import android.os.Bundle;
@@ -107,7 +108,8 @@ public class AddExerciseActivity extends AppCompatActivity implements Attachment
 
             Exercise exercise = new Exercise(null, idClass, title, instruction, new Date(), expiredDate, idAuthor);
             ExerciseAdapter.addExercise(exercise, fileAdapter.getAttachment());
-            AttachmentRepository.pushDataToFirebase("exercises", fileAdapter.getAttachment(), this);
+            AttachmentRepository.pushDataToFirebase("exercises/", fileAdapter.getAttachment(), this);
+            PostRepository.createPostWithExercise(this, title, idAuthor, idClass, exercise.getId());
             finish();
         });
 

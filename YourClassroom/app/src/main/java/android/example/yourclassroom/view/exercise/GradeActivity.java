@@ -35,6 +35,7 @@ public class GradeActivity extends AppCompatActivity {
 
     private Intent intent;
     private String idClass;
+    private String idTeacher;
     private String idExercise;
     private ImageButton btnClose;
     private TextView btnSubmit;
@@ -49,6 +50,7 @@ public class GradeActivity extends AppCompatActivity {
         intent = getIntent();
         idClass = intent.getStringExtra("idClass");
         idExercise = intent.getStringExtra("idExercise");
+        idTeacher = intent.getStringExtra("idTeacher");
 
 //        Binding view
         btnClose = findViewById(R.id.btn_close_from_grade);
@@ -64,27 +66,29 @@ public class GradeActivity extends AppCompatActivity {
         UserRepository.getAllUserByIdClass(idClass, new ValueCallback<String>() {
             @Override
             public void onReceiveValue(String value) {
+                if (idTeacher != null && !idTeacher.equals(value)) {
+                    // Lấy object user từ id của học sinh
+                    UserRepository.getUserById(value, new ValueCallback<User>() {
+                        @Override
+                        public void onReceiveValue(User value) {
+                            students.add(value);
+                            String userId = value.getId();
+                            studentAttachments.put(userId, new ArrayList<>());
+                            adapter.notifyDataSetChanged();
 
-                // Lấy object user từ id của học sinh
-                UserRepository.getUserById(value, new ValueCallback<User>() {
-                    @Override
-                    public void onReceiveValue(User value) {
-                        students.add(value);
-                        String userId = value.getId();
-                        studentAttachments.put(userId, new ArrayList<>());
-                        adapter.notifyDataSetChanged();
-                        // Lấy danh sách bài làm của học sinh
-                        AttachmentRepository.getAllAttachmentByIdUser(userId, new ValueCallback<Attachment>() {
-                            @Override
-                            public void onReceiveValue(Attachment value) {
-                                if (value != null && value.getIdExercise().equals(idExercise)) {
-                                    studentAttachments.get(userId).add(value);
-                                    adapter.notifyDataSetChanged();
+                            // Lấy danh sách bài làm của học sinh
+                            AttachmentRepository.getAllAttachmentByIdUser(userId, new ValueCallback<Attachment>() {
+                                @Override
+                                public void onReceiveValue(Attachment value) {
+                                    if (value != null && value.getIdExercise().equals(idExercise)) {
+                                        studentAttachments.get(userId).add(value);
+                                        adapter.notifyDataSetChanged();
+                                    }
                                 }
-                            }
-                        });
-                    }
-                });
+                            });
+                        }
+                    });
+                }
             }
         });
 

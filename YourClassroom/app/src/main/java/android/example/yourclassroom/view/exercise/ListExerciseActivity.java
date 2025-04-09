@@ -3,9 +3,11 @@ package android.example.yourclassroom.view.exercise;
 import android.content.Intent;
 import android.example.yourclassroom.controller.ExerciseAdapter;
 import android.example.yourclassroom.model.Exercise;
+import android.example.yourclassroom.views.post.NewsFeedActivity;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -13,11 +15,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.example.yourclassroom.R;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.webkit.ValueCallback;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class ListExerciseActivity extends AppCompatActivity implements ExerciseAdapter.OnItemClickListener {
 
@@ -74,6 +79,29 @@ public class ListExerciseActivity extends AppCompatActivity implements ExerciseA
 
 //        Dong intent
         btnBack.setOnClickListener(v -> finish());
+
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int itemId = item.getItemId();
+                if (itemId == R.id.menu_item_exercise) {
+                    rvListExercise.smoothScrollToPosition(0);
+                    return true;
+                } else if (itemId == R.id.menu_item_news_feed) {
+                    Intent intent = new Intent(ListExerciseActivity.this, NewsFeedActivity.class);
+                    intent.putExtra("idClass", idClass);
+                    intent.putExtra("idUser", idUser);
+                    intent.putExtra("idTeacher", idTeacher);
+                    startActivity(intent);
+                    finish();
+                    return true;
+                }
+                return false;
+            }
+
+        });
     }
 
     @Override
@@ -83,6 +111,7 @@ public class ListExerciseActivity extends AppCompatActivity implements ExerciseA
             Intent gradeIntent = new Intent(ListExerciseActivity.this, GradeActivity.class);
             gradeIntent.putExtra("idExercise", exercise.getId());
             gradeIntent.putExtra("idClass", idClass);
+            gradeIntent.putExtra("idTeacher", idTeacher);
             startActivity(gradeIntent);
         } else {
             Intent submitAssignmentIntent = new Intent(ListExerciseActivity.this, SubmitAssignmentActivity.class);

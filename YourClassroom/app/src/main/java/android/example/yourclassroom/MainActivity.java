@@ -2,13 +2,11 @@ package android.example.yourclassroom;
 
 import android.content.Intent;
 import android.example.yourclassroom.view.exercise.ListExerciseActivity;
+import android.example.yourclassroom.views.post.NewsFeedActivity;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,8 +16,8 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        String idClass = "-OMoA2dc1KxbDwPrnbQG";
-        String idUser = "3";
+        String idClass = "-ONFpWG_4Kch5GD26f7x";
+        String idUser = "4";
         String idTeacher = "1";
 
         Intent ListExerciseIntent = new Intent(this, ListExerciseActivity.class);
@@ -29,3 +27,4 @@ public class MainActivity extends AppCompatActivity {
         startActivity(ListExerciseIntent);
     }
 }
+

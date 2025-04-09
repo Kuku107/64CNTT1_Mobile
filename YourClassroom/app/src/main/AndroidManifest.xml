@@ -29,6 +29,14 @@
             android:name=".view.exercise.GradeActivity"
             android:exported="false" />
         <activity
+            android:name=".views.post.PostActivity"
+            android:parentActivityName=".views.post.NewsFeedActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".views.post.NewsFeedActivity"
+            android:parentActivityName=".MainActivity"
+            android:exported="false"/>
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
