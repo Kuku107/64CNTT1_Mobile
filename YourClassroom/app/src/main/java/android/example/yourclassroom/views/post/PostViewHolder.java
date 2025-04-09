@@ -6,9 +6,12 @@ import android.example.yourclassroom.models.Post;
 
 
 import android.example.yourclassroom.R;
+import android.example.yourclassroom.repository.PostRepository;
 import android.view.MenuInflater;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
@@ -17,21 +20,25 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 public class PostViewHolder extends RecyclerView.ViewHolder {
     public TextView tvAuthor, tvDate, tvContent, tvAttachment;
     public ImageView imvMore;
     public CardView cvAttachment;
+    public ListView lvAttachment;
 
     public PostViewHolder(@NonNull View itemView) {
         super(itemView);
         tvAuthor = itemView.findViewById(R.id.tv_name);
         tvDate = itemView.findViewById(R.id.tv_date);
         tvContent = itemView.findViewById(R.id.tv_content);
-        tvAttachment = itemView.findViewById(R.id.tv_attachment);
-        cvAttachment = itemView.findViewById(R.id.cv_attachment);
+//        tvAttachment = itemView.findViewById(R.id.tv_attachment);
+//        cvAttachment = itemView.findViewById(R.id.cv_attachment);
         imvMore = itemView.findViewById(R.id.imv_more);
+        lvAttachment = itemView.findViewById(R.id.item_post_list_file);
     }
 
     public void bind(Post post, PostAdapter postAdapter) {
@@ -42,12 +49,15 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
 
         tvContent.setText(post.getContent());
 
-        if (post.getIdExercise() != null && !post.getIdExercise().isEmpty()) {
-            cvAttachment.setVisibility(View.VISIBLE);
-            tvAttachment.setText("BaiTapTuan1.pdf");
-        } else {
-            cvAttachment.setVisibility(View.GONE);
-        }
+//        if (post.getIdExercise() != null && !post.getIdExercise().isEmpty()) {
+//            cvAttachment.setVisibility(View.VISIBLE);
+//            tvAttachment.setText("BaiTapTuan1.pdf");
+//        } else {
+//            cvAttachment.setVisibility(View.GONE);
+//        }
+        List<String> fileNames = List.of("BaiTapTuan2.pdf", "BaiTapTuan3.pdf");
+        ArrayAdapter<String> topicAdapter = new ArrayAdapter<>(itemView.getContext(), android.R.layout.simple_list_item_1, fileNames);
+        lvAttachment.setAdapter(topicAdapter);
 
         imvMore.setOnClickListener(v -> {
             PopupMenu popup = new PopupMenu(v.getContext(), v);
@@ -56,7 +66,7 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
 
             popup.setOnMenuItemClickListener(item -> {
                 if (item.getItemId() == R.id.action_delete) {
-                    postAdapter.deletePost(v.getContext(), post);
+                    PostRepository.deletePost(v.getContext(), post);
                     return true;
                 }
                 return false;

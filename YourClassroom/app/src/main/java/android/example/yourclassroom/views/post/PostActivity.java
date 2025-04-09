@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.example.yourclassroom.controllers.PostAdapter;
 import android.example.yourclassroom.models.Post;
 import android.example.yourclassroom.R;
+import android.example.yourclassroom.repository.PostRepository;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -48,7 +49,7 @@ public class PostActivity extends AppCompatActivity {
                 String idClass = "1";
                 String content = edtPostContent.getText().toString().trim();
                 if (!content.isEmpty()) {
-                    postAdapter.createPost(content, idTeacher, idClass);
+                    PostRepository.createPost(PostActivity.this, content, idTeacher, idClass);
                     finish();
                 } else {
                     Toast.makeText(PostActivity.this, "Nội dung không được để trống!", Toast.LENGTH_SHORT).show();
