@@ -1,5 +1,6 @@
 package android.example.yourclassroom.views.post;
 
+import android.content.Intent;
 import android.example.yourclassroom.controllers.PostAdapter;
 import android.example.yourclassroom.models.Post;
 import android.example.yourclassroom.R;
@@ -54,7 +55,6 @@ public class PostActivity extends AppCompatActivity {
                 }
             }
         });
-
 
     }
 

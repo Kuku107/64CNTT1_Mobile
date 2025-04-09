@@ -1,6 +1,8 @@
 package android.example.yourclassroom.controllers;
 
+import android.content.Intent;
 import android.example.yourclassroom.models.Post;
+import android.example.yourclassroom.views.post.PostActivity;
 import android.example.yourclassroom.views.post.PostViewHolder;
 
 import android.content.Context;
@@ -8,6 +10,7 @@ import android.example.yourclassroom.R;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -115,6 +118,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder> {
 
         builder.show();
     }
+
+
 
 //    public void createPostWithExercise(String content, String idTeacher, String idClass, String idExercise) {
 //        FirebaseDatabase database = FirebaseDatabase.getInstance("https://yourclassroom-6d328-default-rtdb.asia-southeast1.firebasedatabase.app/");
