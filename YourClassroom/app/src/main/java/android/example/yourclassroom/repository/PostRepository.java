@@ -2,6 +2,7 @@ package android.example.yourclassroom.repository;
 
 import android.content.Context;
 import android.example.yourclassroom.model.Post;
+import android.webkit.ValueCallback;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -43,12 +44,17 @@ public class PostRepository {
         DatabaseReference myRef = database.getReference("posts");
 
         String newId = myRef.push().getKey();
-        Post post = new Post(newId, idTeacher, idClass, null, "Nguyễn Trung Đức", new Date(), content);
-
-        myRef.child(newId).setValue(post, new DatabaseReference.CompletionListener() {
+        UserRepository.getNameById(idTeacher, new ValueCallback<String>() {
             @Override
-            public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
-                Toast.makeText(context, "Thêm thành công!", Toast.LENGTH_SHORT).show();
+            public void onReceiveValue(String value) {
+                Post post = new Post(newId, idTeacher, idClass, null, value, new Date(), content);
+
+                myRef.child(newId).setValue(post, new DatabaseReference.CompletionListener() {
+                    @Override
+                    public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+                        Toast.makeText(context, "Thêm thành công!", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
     }
@@ -58,13 +64,19 @@ public class PostRepository {
         DatabaseReference myRef = database.getReference("posts");
 
         String newId = myRef.push().getKey();
-        Post post = new Post(newId, idTeacher, idClass, idExercise, "Nguyễn Trung Đức", new Date(), content);
-
-        myRef.child(newId).setValue(post, new DatabaseReference.CompletionListener() {
+        UserRepository.getNameById(idTeacher, new ValueCallback<String>() {
             @Override
-            public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
-                Toast.makeText(context, "Thêm thành công!", Toast.LENGTH_SHORT).show();
+            public void onReceiveValue(String value) {
+                Post post = new Post(newId, idTeacher, idClass, idExercise, value, new Date(), content);
+
+                myRef.child(newId).setValue(post, new DatabaseReference.CompletionListener() {
+                    @Override
+                    public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+                        Toast.makeText(context, "Thêm thành công!", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
+
     }
 }
