@@ -1,8 +1,7 @@
 package android.example.yourclassroom.views.post;
 
-import android.content.Intent;
 import android.example.yourclassroom.controllers.PostAdapter;
-import android.example.yourclassroom.models.Post;
+import android.example.yourclassroom.model.Post;
 import android.example.yourclassroom.R;
 import android.example.yourclassroom.repository.PostRepository;
 import android.os.Bundle;

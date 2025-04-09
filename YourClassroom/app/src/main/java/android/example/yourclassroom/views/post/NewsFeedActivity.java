@@ -1,21 +1,18 @@
 package android.example.yourclassroom.views.post;
 
 import android.example.yourclassroom.R;
-import android.example.yourclassroom.models.Post;
+import android.example.yourclassroom.model.Post;
 import android.example.yourclassroom.controllers.PostAdapter;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;

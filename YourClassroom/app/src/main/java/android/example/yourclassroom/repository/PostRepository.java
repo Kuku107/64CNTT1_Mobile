@@ -1,7 +1,7 @@
 package android.example.yourclassroom.repository;
 
 import android.content.Context;
-import android.example.yourclassroom.models.Post;
+import android.example.yourclassroom.model.Post;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;

@@ -1,14 +1,16 @@
 package android.example.yourclassroom.views.post;
 
-import android.content.Intent;
 import android.example.yourclassroom.controllers.PostAdapter;
-import android.example.yourclassroom.models.Post;
+import android.example.yourclassroom.model.Attachment;
+import android.example.yourclassroom.model.Post;
 
 
 import android.example.yourclassroom.R;
+import android.example.yourclassroom.repository.AttachmentRepository;
 import android.example.yourclassroom.repository.PostRepository;
 import android.view.MenuInflater;
 import android.view.View;
+import android.webkit.ValueCallback;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -55,9 +57,20 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
 //        } else {
 //            cvAttachment.setVisibility(View.GONE);
 //        }
-        List<String> fileNames = List.of("BaiTapTuan2.pdf", "BaiTapTuan3.pdf");
+        List<Attachment> attachmentList = new ArrayList<>();
+        List<String> fileNames = new ArrayList<>();
         ArrayAdapter<String> topicAdapter = new ArrayAdapter<>(itemView.getContext(), android.R.layout.simple_list_item_1, fileNames);
         lvAttachment.setAdapter(topicAdapter);
+        AttachmentRepository.getAllAttachmentByIdExercise(post.getIdExercise(), new ValueCallback<Attachment>() {
+            @Override
+            public void onReceiveValue(Attachment value) {
+                attachmentList.add(value);
+                fileNames.add(value.getFilename());
+                topicAdapter.notifyDataSetChanged();
+            }
+        });
+
+
 
         imvMore.setOnClickListener(v -> {
             PopupMenu popup = new PopupMenu(v.getContext(), v);
