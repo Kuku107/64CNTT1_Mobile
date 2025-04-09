@@ -1,12 +1,9 @@
-
-
 package android.example.yourclassroom.View_Classroom;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.example.yourclassroom.R;
-import android.example.yourclassroom.controllers.CardAdapter;
-import android.example.yourclassroom.models.CardItem;
+import android.example.yourclassroom.controllers.ClasroomAdapter;
+import android.example.yourclassroom.models.classroom;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,8 +21,8 @@ public class JoinActivity extends AppCompatActivity {
     private ImageButton imbclose;  // Nút đóng activity
     private EditText edtcode;  // EditText để nhập mã lớp
     private Button btnjoin;  // Nút tham gia lớp
-    private List<CardItem> cardList;  // Danh sách các lớp học
-    private CardAdapter cardAdapter;  // Adapter để hiển thị danh sách lớp
+    private List<classroom> classroomList;  // Danh sách các lớp học
+    private ClasroomAdapter classroomAdapter;  // Adapter để hiển thị danh sách lớp
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -33,8 +30,8 @@ public class JoinActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_join);  // Gán layout cho activity
 
-        cardList = new ArrayList<>();  // Khởi tạo danh sách lớp học
-        cardAdapter = new CardAdapter(cardList, this);  // Khởi tạo Adapter (mặc dù hiện tại chưa sử dụng trong activity này)
+        classroomList = new ArrayList<>();  // Khởi tạo danh sách lớp học
+        classroomAdapter = new ClasroomAdapter(classroomList, this);  // Khởi tạo Adapter
 
         edtcode = findViewById(R.id.edt_code);  // Lấy tham chiếu đến EditText
         btnjoin = findViewById(R.id.btn_join);  // Lấy tham chiếu đến Button
@@ -54,15 +51,12 @@ public class JoinActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String codeclass = edtcode.getText().toString().trim();  // Lấy mã lớp từ EditText
                 if (!codeclass.isEmpty()) {  // Kiểm tra mã lớp có rỗng không
-                    // Gọi phương thức tham gia lớp trong adapter
-                    cardAdapter.joinCard(codeclass);
+                    classroomAdapter.joinClassroom(codeclass, "1");  // Gọi phương thức tham gia lớp
                     finish();  // Đóng màn hình sau khi tham gia
                 } else {
-                    // Hiển thị thông báo nếu mã lớp bị trống
                     Toast.makeText(JoinActivity.this, "Mã lớp không được để trống!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
 }
-

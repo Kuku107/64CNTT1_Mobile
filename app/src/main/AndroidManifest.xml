@@ -13,11 +13,11 @@
         android:theme="@style/Theme.YourClassroom"
         tools:targetApi="31">
         <activity
-            android:name=".controllers.CardAdapter"
+            android:name=".controllers.ClasroomAdapter"
             android:exported="false"
             android:theme="@style/Theme.YourClassroom" />
         <activity
-            android:name=".models.CardItem"
+            android:name=".models.classroom"
             android:exported="false"
             android:theme="@style/Theme.YourClassroom" />
         <activity

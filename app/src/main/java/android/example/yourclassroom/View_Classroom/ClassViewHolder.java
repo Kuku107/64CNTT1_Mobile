@@ -2,8 +2,8 @@
 package android.example.yourclassroom.View_Classroom;
 
 import android.example.yourclassroom.R;
-import android.example.yourclassroom.controllers.CardAdapter;
-import android.example.yourclassroom.models.CardItem;
+import android.example.yourclassroom.controllers.ClasroomAdapter;
+import android.example.yourclassroom.models.classroom;
 import android.view.MenuInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -11,7 +11,6 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ClassViewHolder extends RecyclerView.ViewHolder {
@@ -27,10 +26,10 @@ public class ClassViewHolder extends RecyclerView.ViewHolder {
         imvMore = itemView.findViewById(R.id.imv_more);
     }
 
-    public void bind(CardItem cardItem, CardAdapter cardAdapter) {
+    public void bind(classroom classroomItem, ClasroomAdapter clasroomAdapter) {
         // Gán dữ liệu cho các thành phần trong ViewHolder
-        tvCodeClass.setText(cardItem.getCodeClass());
-        tvclassName.setText(cardItem.getClassName());
+        tvCodeClass.setText(classroomItem.getCodeClass());
+        tvclassName.setText(classroomItem.getClassName());
 
         // Xử lý sự kiện khi bấm vào nút "thêm tùy chọn" (3 chấm)
         imvMore.setOnClickListener(v -> {
@@ -41,7 +40,7 @@ public class ClassViewHolder extends RecyclerView.ViewHolder {
             // Xử lý sự kiện khi chọn mục trong menu
             popup.setOnMenuItemClickListener(item -> {
                 if (item.getItemId() == R.id.action_delete) {  // Nếu chọn xóa bài đăng
-                    cardAdapter.deleteCard( cardItem);  // Gọi phương thức deleteCard từ Adapter
+                    clasroomAdapter.deleteClasroom( classroomItem);  // Gọi phương thức deleteCard từ Adapter
                     return true;
                 }
                 return false;
