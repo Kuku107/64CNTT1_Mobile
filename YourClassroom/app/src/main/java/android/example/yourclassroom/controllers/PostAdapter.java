@@ -71,5 +71,9 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder> {
             }
         });
     }
+
+    public Context getContext() {
+        return context;
+    }
 }
 

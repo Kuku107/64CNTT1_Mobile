@@ -1,5 +1,9 @@
 package android.example.yourclassroom.views.post;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
 import android.example.yourclassroom.controllers.PostAdapter;
 import android.example.yourclassroom.model.Attachment;
 import android.example.yourclassroom.model.Post;
@@ -8,14 +12,17 @@ import android.example.yourclassroom.model.Post;
 import android.example.yourclassroom.R;
 import android.example.yourclassroom.repository.AttachmentRepository;
 import android.example.yourclassroom.repository.PostRepository;
+import android.net.Uri;
 import android.view.MenuInflater;
 import android.view.View;
 import android.webkit.ValueCallback;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -70,7 +77,20 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
             }
         });
 
-
+        lvAttachment.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Attachment file = attachmentList.get(position);
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setDataAndType(Uri.parse(file.getUri()), "application/pdf");
+                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                try {
+                    postAdapter.getContext().startActivity(intent);
+                } catch (ActivityNotFoundException e) {
+                    Toast.makeText(postAdapter.getContext(), "No application to read file pdf", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
         imvMore.setOnClickListener(v -> {
             PopupMenu popup = new PopupMenu(v.getContext(), v);
