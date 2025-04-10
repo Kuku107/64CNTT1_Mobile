@@ -103,7 +103,7 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
             inflater.inflate(R.menu.post_options_menu, popup.getMenu());
 
             popup.setOnMenuItemClickListener(item -> {
-                if (item.getItemId() == R.id.action_delete) {
+                if (item.getItemId() == R.id.action_logout) {
                     PostRepository.deletePost(v.getContext(), post);
                     return true;
                 }

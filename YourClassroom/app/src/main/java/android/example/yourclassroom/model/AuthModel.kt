@@ -63,8 +63,7 @@ class AuthModel {
         val userDisplayName = firebaseUser.displayName
         val userId = firebaseUser.uid
 
-        val userRef = database.child("users")
-        val newUserRef = userRef.push()
+        val userRef = database.child("users").child(userId)
         val userMap = mapOf(
             "email" to userEmail,
             "fullname" to userDisplayName,
@@ -72,7 +71,7 @@ class AuthModel {
         )
 
         try {
-            newUserRef.setValue(userMap).await()
+            userRef.setValue(userMap).await()
             Result.success(Unit)
         } catch (e: Exception) {
             throw Exception("Lỗi khi lưu người dùng vào cơ sở dữ liệu: ${e.message}")

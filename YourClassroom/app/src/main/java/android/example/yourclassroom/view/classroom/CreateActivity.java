@@ -46,7 +46,7 @@ public class CreateActivity extends AppCompatActivity {
             String className = edtClassname.getText().toString().trim(); // Lấy nội dung từ EditText
             if (!className.isEmpty()) { // Kiểm tra nội dung không rỗng
                 classroomAdapter.insertClassroom(className); // Gửi dữ liệu vào Adapter để xử lý
-                finish(); // Đóng màn hình sau khi tạo lớp thành công
+                finish();
             } else {
                 Toast.makeText(CreateActivity.this, "Tên lớp không được để trống!", Toast.LENGTH_SHORT).show();
             }
