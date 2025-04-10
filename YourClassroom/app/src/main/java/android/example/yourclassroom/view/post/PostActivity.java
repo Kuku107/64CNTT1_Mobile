@@ -29,16 +29,18 @@ public class PostActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post);
 
+        // Get the intent data
+        idClass = getIntent().getStringExtra("idClass");
+        idTeacher = getIntent().getStringExtra("idTeacher");
+
         postList = new ArrayList<>();
-        postAdapter = new PostAdapter(postList, this);
+        postAdapter = new PostAdapter(postList, this, idTeacher, idClass);
 
         imbClose = findViewById(R.id.imb_close);
         btnPost = findViewById(R.id.btn_post);
         edtPostContent = findViewById(R.id.edt_post_content);
 
-        // Get the intent data
-        idClass = getIntent().getStringExtra("idClass");
-        idTeacher = getIntent().getStringExtra("idTeacher");
+
 
         imbClose.setOnClickListener(new View.OnClickListener() {
             @Override

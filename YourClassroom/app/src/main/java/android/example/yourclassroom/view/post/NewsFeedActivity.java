@@ -12,6 +12,7 @@ import android.view.View;
 import android.webkit.ValueCallback;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -34,7 +35,7 @@ public class NewsFeedActivity extends AppCompatActivity {
 
     private TextView bannerTitleTv;
 
-    String idTeacher, idClass, idUser;
+    private String idTeacher, idClass, idUser;
 
 
     @Override
@@ -43,9 +44,12 @@ public class NewsFeedActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_news_feed);
 
-
+        imbBack = findViewById(R.id.imb_back);
+        bannerTitleTv = findViewById(R.id.tv_bannerTitle);
+        cvPost = findViewById(R.id.cv_post);
         rcvPost = findViewById(R.id.rcvPost);
         rcvPost.setLayoutManager(new LinearLayoutManager(this));
+
 
         Intent intent = getIntent();
         idClass = intent.getStringExtra("idClass");
@@ -53,7 +57,6 @@ public class NewsFeedActivity extends AppCompatActivity {
         idTeacher = intent.getStringExtra("idTeacher");
 
 
-        imbBack = findViewById(R.id.imb_back);
         imbBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,26 +87,27 @@ public class NewsFeedActivity extends AppCompatActivity {
 
         });
 
-
-        cvPost = findViewById(R.id.cv_post);
         cvPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(NewsFeedActivity.this, PostActivity.class);
-                intent.putExtra("idClass", idClass);
-                intent.putExtra("idTeacher", idTeacher);
-                startActivity(intent);
+                if (idUser.equals(idTeacher)) {
+                    Intent intent = new Intent(NewsFeedActivity.this, PostActivity.class);
+                    intent.putExtra("idClass", idClass);
+                    intent.putExtra("idTeacher", idTeacher);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(NewsFeedActivity.this, "Bạn không có quyền đăng tin", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 
 
         postList = new ArrayList<>();
-        postAdapter = new PostAdapter(postList, this);
+        postAdapter = new PostAdapter(postList, this, idUser, idTeacher);
         rcvPost.setAdapter(postAdapter);
         postAdapter.getAllPost();
 
-
-        bannerTitleTv = findViewById(R.id.tv_bannerTitle);
         ClassroomRepository.getClassNameByIdClass(idClass, new ValueCallback<String>() {
             @Override
             public void onReceiveValue(String className) {

@@ -24,12 +24,22 @@ import java.util.List;
 public class PostAdapter extends RecyclerView.Adapter<PostViewHolder> {
     private List<Post> postList;
     private Context context;
+    private String idUser, idTeacher;
 
-    public PostAdapter(List<Post> postList, Context context) {
+    public PostAdapter(List<Post> postList, Context context, String idUser, String idTeacher) {
         this.postList = postList;
         this.context = context;
+        this.idUser = idUser;
+        this.idTeacher = idTeacher;
     }
 
+    public String getIdUser() {
+        return idUser;
+    }
+
+    public String getIdTeacher() {
+        return idTeacher;
+    }
 
     @NonNull
     @Override

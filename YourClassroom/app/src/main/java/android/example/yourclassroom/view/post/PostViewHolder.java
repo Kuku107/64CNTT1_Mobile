@@ -1,5 +1,7 @@
 package android.example.yourclassroom.view.post;
 
+import static android.content.Intent.getIntent;
+
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.example.yourclassroom.controller.PostAdapter;
@@ -51,11 +53,18 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
         tvDate.setText(sdf.format(post.getCreatedAt()));
         tvContent.setText(post.getContent());
 
+        if (post.getIdExercise() != null && !post.getIdExercise().isEmpty()) {
+            lvAttachment.setVisibility(View.VISIBLE);
+        } else {
+            lvAttachment.setVisibility(View.GONE);
+        }
 
+        // Khoi tao danh sach dinh kem va adapter de hien thi
         List<Attachment> attachmentList = new ArrayList<>();
         List<String> fileNames = new ArrayList<>();
         ArrayAdapter<String> topicAdapter = new ArrayAdapter<>(itemView.getContext(), android.R.layout.simple_list_item_1, fileNames);
         lvAttachment.setAdapter(topicAdapter);
+
         AttachmentRepository.getAllAttachmentByIdExercise(post.getIdExercise(), new ValueCallback<Attachment>() {
             @Override
             public void onReceiveValue(Attachment value) {
@@ -64,6 +73,7 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
                 topicAdapter.notifyDataSetChanged();
             }
         });
+
 
         lvAttachment.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -79,6 +89,17 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
                 }
             }
         });
+
+
+        String idUser = postAdapter.getIdUser();
+        String idTeacher = postAdapter.getIdTeacher();
+
+        if (idUser.equals(idTeacher)) {
+            imvMore.setVisibility(View.VISIBLE);
+        } else {
+            imvMore.setVisibility(View.GONE);
+        }
+
 
         imvMore.setOnClickListener(v -> {
             PopupMenu popup = new PopupMenu(v.getContext(), v);
