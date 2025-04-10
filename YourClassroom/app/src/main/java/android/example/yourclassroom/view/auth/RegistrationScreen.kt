@@ -1,6 +1,5 @@
-package android.example.yourclassroom
+package android.example.yourclassroom.view.auth
 
-import android.util.Patterns
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -14,36 +13,33 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.google.firebase.Firebase
-import com.google.firebase.auth.auth
-import com.google.firebase.FirebaseException
-import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.navigation.NavController
-import android.example.yourclassroom.Dialog
-import com.google.firebase.auth.UserProfileChangeRequest
+import android.example.yourclassroom.R
 
 @Composable
-fun RegistrationScreen(navController: NavController) {
-    var fullName by remember { mutableStateOf("") }
-    var email by remember { mutableStateOf("") }
-    var password by remember { mutableStateOf("") }
-    var confirmPassword by remember { mutableStateOf("") }
-    var passwordVisible by remember { mutableStateOf(false) }
-    var confirmPasswordVisible by remember { mutableStateOf(false) }
-    var showMessage by remember { mutableStateOf<String?>(null) }
-    val auth = Firebase.auth
-    val context = LocalContext.current
-
+fun RegistrationScreen(
+    fullName: String,
+    email: String,
+    password: String,
+    confirmPassword: String,
+    onFullNameChange: (String) -> Unit,
+    onEmailChange: (String) -> Unit,
+    onPasswordChange: (String) -> Unit,
+    onConfirmPasswordChange: (String) -> Unit,
+    onRegisterClick: () -> Unit,
+    errorMessage: String?,
+    passwordVisible: Boolean,
+    onPasswordVisibilityChange: (Boolean) -> Unit,
+    confirmPasswordVisible: Boolean,
+    onConfirmPasswordVisibilityChange: (Boolean) -> Unit
+) {
     Box(Modifier.fillMaxSize()) {
         Surface(
             modifier = Modifier.fillMaxSize(),
@@ -89,7 +85,7 @@ fun RegistrationScreen(navController: NavController) {
 
                         OutlinedTextField(
                             value = fullName,
-                            onValueChange = { fullName = it },
+                            onValueChange = { onFullNameChange(it) },
                             label = { Text("Họ và tên") },
                             singleLine = true,
                             modifier = Modifier.fillMaxWidth(),
@@ -100,7 +96,7 @@ fun RegistrationScreen(navController: NavController) {
 
                         OutlinedTextField(
                             value = email,
-                            onValueChange = { email = it },
+                            onValueChange = { onEmailChange(it) },
                             label = { Text("Email") },
                             singleLine = true,
                             modifier = Modifier
@@ -115,7 +111,7 @@ fun RegistrationScreen(navController: NavController) {
 
                         OutlinedTextField(
                             value = password,
-                            onValueChange = { password = it },
+                            onValueChange = { onPasswordChange(it) },
                             label = { Text("Mật khẩu") },
                             visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
                             singleLine = true,
@@ -123,7 +119,7 @@ fun RegistrationScreen(navController: NavController) {
                                 .fillMaxWidth()
                                 .padding(top = 8.dp),
                             trailingIcon = {
-                                IconButton(onClick = { passwordVisible = !passwordVisible }) {
+                                IconButton(onClick = { onPasswordVisibilityChange(!passwordVisible) }) {
                                     Icon(
                                         if (passwordVisible) Icons.Filled.Visibility else Icons.Filled.VisibilityOff,
                                         contentDescription = "Ẩn/Hiện mật khẩu"
@@ -137,7 +133,7 @@ fun RegistrationScreen(navController: NavController) {
 
                         OutlinedTextField(
                             value = confirmPassword,
-                            onValueChange = { confirmPassword = it },
+                            onValueChange = { onConfirmPasswordChange(it) },
                             label = { Text("Xác nhận mật khẩu") },
                             visualTransformation = if (confirmPasswordVisible) VisualTransformation.None else PasswordVisualTransformation(),
                             singleLine = true,
@@ -145,7 +141,7 @@ fun RegistrationScreen(navController: NavController) {
                                 .fillMaxWidth()
                                 .padding(top = 8.dp),
                             trailingIcon = {
-                                IconButton(onClick = { confirmPasswordVisible = !confirmPasswordVisible }) {
+                                IconButton(onClick = { onConfirmPasswordVisibilityChange(!confirmPasswordVisible) }) {
                                     Icon(
                                         if (confirmPasswordVisible) Icons.Filled.Visibility else Icons.Filled.VisibilityOff,
                                         contentDescription = "Ẩn/Hiện xác nhận mật khẩu"
@@ -155,72 +151,24 @@ fun RegistrationScreen(navController: NavController) {
                         )
 
                         Button(
-                            onClick = {
-                                if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                                    showMessage = "Email không hợp lệ!"
-                                    return@Button
-                                }
-                                if (password == confirmPassword) {
-                                    auth.createUserWithEmailAndPassword(email, password)
-                                        .addOnCompleteListener { task ->
-                                            if (task.isSuccessful) {
-                                                val user = auth.currentUser
-
-                                                val profileUpdates = UserProfileChangeRequest.Builder()
-                                                    .setDisplayName(fullName)
-                                                    .build()
-                                                user?.updateProfile(profileUpdates)
-
-                                                user?.sendEmailVerification()
-                                                    ?.addOnCompleteListener { verificationTask ->
-                                                        if (verificationTask.isSuccessful) {
-                                                            showMessage = "Gửi email xác thực thành công!"
-                                                        } else {
-                                                            showMessage = "Gửi email xác thực thất bại!"
-                                                        }
-                                                    }
-                                            } else {
-                                                val exception = task.exception
-                                                if (exception is FirebaseAuthUserCollisionException) {
-                                                    showMessage = "Email đã được sử dụng!"
-                                                } else {
-                                                    showMessage = "Đăng ký không thành công!"
-                                                }
-                                            }
-                                        }
-                                } else {
-                                    showMessage = "Mật khẩu không trùng khớp!"
-                                }
-                            },
+                            onClick = { onRegisterClick() },
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(top = 32.dp)
                         ) {
                             Text("Đăng ký")
                         }
+
+                        if (errorMessage != null) {
+                            Text(
+                                text = errorMessage,
+                                color = Color.Red,
+                                modifier = Modifier.padding(top = 8.dp)
+                            )
+                        }
                     }
                 }
             }
-        }
-
-        if (showMessage == "Gửi email xác thực thành công!") {
-            Dialog(
-                Message = showMessage!!,
-                onDismiss = { showMessage = null },
-                iconResourceId = R.drawable.ic_email,
-                buttonText = "OK",
-                onNavigateToLogin = {
-                    navController.navigate("login") {
-                        popUpTo(navController.graph.startDestinationId) { inclusive = true }
-                    }
-                    showMessage = null
-                }
-            )
-        } else if (showMessage != null) {
-            Dialog(
-                Message = showMessage!!,
-                onDismiss = { showMessage = null }
-            )
         }
     }
 }

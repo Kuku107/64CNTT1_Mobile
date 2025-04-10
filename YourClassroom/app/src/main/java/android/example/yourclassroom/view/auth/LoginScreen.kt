@@ -1,4 +1,4 @@
-package android.example.yourclassroom
+package android.example.yourclassroom.view.auth
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -12,34 +12,30 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
-import androidx.navigation.NavController
-import android.content.Context
 import androidx.compose.foundation.BorderStroke
-import androidx.navigation.compose.rememberNavController
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
-import android.example.yourclassroom.Dialog
-import com.google.firebase.auth.FirebaseUser
+import android.example.yourclassroom.R
 
 @Composable
-fun LoginScreen(navController: NavController, onLoginSuccess: (FirebaseUser?) -> Unit) {
-    var passwordVisible by remember { mutableStateOf(false) }
-    var passwordState by remember { mutableStateOf("") }
-    var emailState by remember { mutableStateOf("") }
-    var showMessage by remember { mutableStateOf<String?>(null) }
-    val auth = Firebase.auth
-    val context = LocalContext.current
-
+fun LoginScreen(
+    email: String,
+    password: String,
+    onEmailChange: (String) -> Unit,
+    onPasswordChange: (String) -> Unit,
+    onLoginClick: () -> Unit,
+    onForgotPasswordClick: () -> Unit,
+    onRegisterClick: () -> Unit,
+    errorMessage: String?,
+    passwordVisible: Boolean,
+    onPasswordVisibilityChange: (Boolean) -> Unit
+) {
     Box(Modifier.fillMaxSize()) {
         Surface(
             modifier = Modifier.fillMaxSize(),
@@ -84,8 +80,8 @@ fun LoginScreen(navController: NavController, onLoginSuccess: (FirebaseUser?) ->
                         )
 
                         OutlinedTextField(
-                            value = emailState,
-                            onValueChange = { emailState = it },
+                            value = email,
+                            onValueChange = { onEmailChange(it) },
                             label = { Text("Email") },
                             singleLine = true,
                             modifier = Modifier.fillMaxWidth(),
@@ -97,8 +93,8 @@ fun LoginScreen(navController: NavController, onLoginSuccess: (FirebaseUser?) ->
                         )
 
                         OutlinedTextField(
-                            value = passwordState,
-                            onValueChange = { passwordState = it },
+                            value = password,
+                            onValueChange = { onPasswordChange(it) },
                             label = { Text("Mật khẩu") },
                             visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
                             singleLine = true,
@@ -106,7 +102,7 @@ fun LoginScreen(navController: NavController, onLoginSuccess: (FirebaseUser?) ->
                                 .fillMaxWidth()
                                 .padding(top = 8.dp),
                             trailingIcon = {
-                                IconButton(onClick = { passwordVisible = !passwordVisible }) {
+                                IconButton(onClick = { onPasswordVisibilityChange(!passwordVisible) }) {
                                     Icon(
                                         if (passwordVisible) Icons.Filled.Visibility else Icons.Filled.VisibilityOff,
                                         contentDescription = "Ẩn/Hiện mật khẩu",
@@ -116,7 +112,7 @@ fun LoginScreen(navController: NavController, onLoginSuccess: (FirebaseUser?) ->
                         )
 
                         TextButton(
-                            onClick = { navController.navigate("forgotPassword")},
+                            onClick = { onForgotPasswordClick() },
                             modifier = Modifier
                                 .align(Alignment.Start)
                                 .padding(top = 4.dp)
@@ -125,34 +121,7 @@ fun LoginScreen(navController: NavController, onLoginSuccess: (FirebaseUser?) ->
                         }
 
                         Button(
-                            onClick = {
-                                val email = emailState
-                                val password = passwordState
-                                if (email.isNotEmpty() && password.isNotEmpty()) {
-                                    auth.signInWithEmailAndPassword(email, password)
-                                        .addOnCompleteListener { task ->
-                                            if (task.isSuccessful) {
-                                                val user = auth.currentUser
-                                                if (user?.isEmailVerified == true) {
-                                                    val sharedPreferences = context.getSharedPreferences(
-                                                        "MyAppPrefs",
-                                                        Context.MODE_PRIVATE
-                                                    )
-                                                    val editor = sharedPreferences.edit()
-                                                    editor.putBoolean("isLoggedIn", true)
-                                                    editor.apply()
-                                                    onLoginSuccess(user)
-                                                } else {
-                                                    showMessage = "Vui lòng xác nhận email của bạn!"
-                                                }
-                                            } else {
-                                                showMessage = "Thông tin đăng nhập không chính xác!"
-                                            }
-                                        }
-                                } else {
-                                    showMessage = "Vui lòng nhập đầy đủ thông tin!"
-                                }
-                            },
+                            onClick = { onLoginClick() },
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .defaultMinSize(minHeight = 52.dp)
@@ -162,7 +131,7 @@ fun LoginScreen(navController: NavController, onLoginSuccess: (FirebaseUser?) ->
                         }
 
                         OutlinedButton(
-                            onClick = { navController.navigate("registration") },
+                            onClick = { onRegisterClick() },
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .defaultMinSize(minHeight = 48.dp)
@@ -170,23 +139,17 @@ fun LoginScreen(navController: NavController, onLoginSuccess: (FirebaseUser?) ->
                         ) {
                             Text("Đăng ký tài khoản mới")
                         }
+
+                        if (errorMessage != null) {
+                            Text(
+                                text = errorMessage,
+                                color = Color.Red,
+                                modifier = Modifier.padding(top = 8.dp)
+                            )
+                        }
                     }
                 }
             }
         }
-
-        if (showMessage != null) {
-            Dialog(
-                Message = showMessage!!,
-                onDismiss = {showMessage = null}
-            )
-        }
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun LoginScreenPreview() {
-    val navController = rememberNavController()
-    LoginScreen(navController = navController, onLoginSuccess = {})
 }
