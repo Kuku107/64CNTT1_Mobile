@@ -9,6 +9,7 @@ import android.example.yourclassroom.R;
 import android.example.yourclassroom.model.Attachment;
 import android.example.yourclassroom.model.User;
 import android.example.yourclassroom.repository.SubmissionRepository;
+import android.example.yourclassroom.repository.UserRepository;
 import android.example.yourclassroom.view.exercise.GradeActivity;
 import android.example.yourclassroom.view.exercise.SubmitAssignmentActivity;
 import android.net.Uri;
@@ -55,7 +56,12 @@ public class SubmissionAdapter extends RecyclerView.Adapter<SubmissionAdapter.Su
         User student = students.get(position);
         List<Attachment> attachments = studentAttachments.get(student.getId());
 
-        holder.name.setText(student.getFullName());
+        UserRepository.getNameById(student.getId(), new ValueCallback<String>() {
+            @Override
+            public void onReceiveValue(String value) {
+                holder.name.setText(value);
+            }
+        });
         SubmissionRepository.getScoreByIdExerciseAndIdUser(idExercise, student.getId(), new ValueCallback<Integer>() {
             @Override
             public void onReceiveValue(Integer value) {
