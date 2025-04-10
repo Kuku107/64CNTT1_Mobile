@@ -1,7 +1,5 @@
 package android.example.yourclassroom.view.post;
 
-import static android.content.Intent.getIntent;
-
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.example.yourclassroom.controller.PostAdapter;
@@ -53,16 +51,11 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
         tvDate.setText(sdf.format(post.getCreatedAt()));
         tvContent.setText(post.getContent());
 
-        if (post.getIdExercise() != null && !post.getIdExercise().isEmpty()) {
-            lvAttachment.setVisibility(View.VISIBLE);
-        } else {
-            lvAttachment.setVisibility(View.GONE);
-        }
-
         // Khoi tao danh sach dinh kem va adapter de hien thi
         List<Attachment> attachmentList = new ArrayList<>();
         List<String> fileNames = new ArrayList<>();
-        ArrayAdapter<String> topicAdapter = new ArrayAdapter<>(itemView.getContext(), android.R.layout.simple_list_item_1, fileNames);
+//        ArrayAdapter<String> topicAdapter = new ArrayAdapter<>(itemView.getContext(), android.R.layout.simple_list_item_1, fileNames);
+        ArrayAdapter<String> topicAdapter = new ArrayAdapter<>(itemView.getContext(), R.layout.item_attachment, R.id.tv_filename, fileNames);
         lvAttachment.setAdapter(topicAdapter);
 
         AttachmentRepository.getAllAttachmentByIdExercise(post.getIdExercise(), new ValueCallback<Attachment>() {
@@ -71,6 +64,9 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
                 attachmentList.add(value);
                 fileNames.add(value.getFilename());
                 topicAdapter.notifyDataSetChanged();
+
+                // Cập nhật chiều cao sau khi thêm item
+                setListViewHeightBasedOnChildren(lvAttachment, 2);
             }
         });
 
@@ -117,6 +113,25 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
             popup.show();
         });
 
+    }
+
+    // Ham tu dong dieu chinh chieu cao cua ListView dua tren so item (gioi han toi da)
+    public static void setListViewHeightBasedOnChildren(ListView listView, int maxVisibleItems) {
+        android.widget.ListAdapter listAdapter = listView.getAdapter();
+        if (listAdapter == null) return;
+
+        int totalHeight = 0;
+        int itemsToMeasure = Math.min(listAdapter.getCount(), maxVisibleItems);
+
+        for (int i = 0; i < itemsToMeasure; i++) {
+            View listItem = listAdapter.getView(i, null, listView);
+            listItem.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+            totalHeight += listItem.getMeasuredHeight();
+        }
+
+        totalHeight += listView.getDividerHeight() * (itemsToMeasure - 1);
+        listView.getLayoutParams().height = totalHeight;
+        listView.requestLayout();
     }
 
 }

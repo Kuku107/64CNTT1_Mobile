@@ -69,11 +69,21 @@
             android:textColor="@android:color/black"
             android:textSize="14sp" />
 
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxHeight="200dp"
+            android:layout_marginTop="8dp">
+
         <ListView
             android:id="@+id/item_post_list_file"
             android:layout_width="match_parent"
-            android:layout_height="133dp"
-            android:layout_weight="1" />
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical"
+            android:divider="@android:color/darker_gray"
+            android:dividerHeight="1dp"
+            android:nestedScrollingEnabled="true" />
+    </FrameLayout>
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>
