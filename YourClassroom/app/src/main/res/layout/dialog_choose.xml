@@ -1,0 +1,35 @@
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="16dp"
+    android:orientation="vertical"
+    android:layout_gravity="bottom">
+
+    <TextView
+        android:id="@+id/joinClass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tham gia lớp học"
+        android:textSize="18sp"
+        android:padding="16dp"/>
+    <TextView
+        android:id="@+id/createClass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tạo lớp"
+        android:textSize="18sp"
+        android:padding="16dp"
+        android:layout_below="@id/joinClass"/>
+
+    <ImageButton
+        android:id="@+id/closeChoose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/close_black"
+        android:layout_alignParentRight="true"
+        android:scaleType="fitCenter"
+        android:background="@android:color/transparent"/>
+
+
+</RelativeLayout>

@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "765987925992",
+    "firebase_url": "https://yourclassroom-6d328-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "yourclassroom-6d328",
+    "storage_bucket": "yourclassroom-6d328.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:765987925992:android:a69abd9e9bfd8fa618be5d",
+        "android_client_info": {
+          "package_name": "android.example.yourclassroom"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDk4usYY9D0GJp_8vkXYytEn_9InM63OLs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
