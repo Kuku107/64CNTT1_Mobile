@@ -3,6 +3,7 @@ package android.example.yourclassroom.repository;
 import android.content.Context;
 import android.example.yourclassroom.model.Attachment;
 import android.net.Uri;
+import android.util.Log;
 import android.webkit.ValueCallback;
 import android.widget.Toast;
 
@@ -22,6 +23,7 @@ public class AttachmentRepository {
     private static final FirebaseDatabase database = FirebaseDatabase.getInstance("https://yourclassroom-6d328-default-rtdb.asia-southeast1.firebasedatabase.app/");
     public static void pushDataToFirebase(String path, List<Attachment> fileList, Context context) {
         StorageReference storageReference = FirebaseStorage.getInstance().getReference();
+        DatabaseReference attachmentRef = database.getReference("attachments");
         for (Attachment file : fileList) if (file.getUri() != null) {
             StorageReference fileRef = storageReference.child(path + file.getFilename());
             Uri fileUri = Uri.parse(file.getUri());
@@ -30,6 +32,9 @@ public class AttachmentRepository {
                     .addOnSuccessListener(taskSnapshot -> {
                         fileRef.getDownloadUrl().addOnSuccessListener(uri -> {
                             String downloadUrl = uri.toString();
+                            Log.d("DOWNLOAD_ABLE URL", downloadUrl);
+                            file.setUri(downloadUrl);
+                            attachmentRef.child(file.getId()).child("uri").setValue(downloadUrl);
                             Toast.makeText(context, "Tải lên thành công: " + downloadUrl, Toast.LENGTH_SHORT).show();
                         });
                     })
