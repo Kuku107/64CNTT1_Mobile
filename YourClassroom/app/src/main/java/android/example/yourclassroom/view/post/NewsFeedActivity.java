@@ -106,7 +106,7 @@ public class NewsFeedActivity extends AppCompatActivity {
         postList = new ArrayList<>();
         postAdapter = new PostAdapter(postList, this, idUser, idTeacher);
         rcvPost.setAdapter(postAdapter);
-        postAdapter.getAllPost();
+        postAdapter.getAllPost(idClass);
 
         ClassroomRepository.getClassNameByIdClass(idClass, new ValueCallback<String>() {
             @Override

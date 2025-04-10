@@ -6,11 +6,12 @@
     android:padding="16dp">
 
     <ImageView
+        android:id="@+id/iv_account_exit"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:src="@drawable/account"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="15dp"/>
+        android:layout_marginTop="15dp"
+        android:src="@drawable/account" />
 
     
     <androidx.recyclerview.widget.RecyclerView

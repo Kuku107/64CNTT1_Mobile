@@ -61,7 +61,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder> {
     }
 
 
-    public void getAllPost() {
+    public void getAllPost(String idClass) {
         FirebaseDatabase database =  FirebaseDatabase.getInstance("https://yourclassroom-6d328-default-rtdb.asia-southeast1.firebasedatabase.app/");
         DatabaseReference myRef = database.getReference("posts");
         myRef.addValueEventListener(new ValueEventListener() {
@@ -70,7 +70,9 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder> {
                 postList.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     Post post = dataSnapshot.getValue(Post.class);
-                    postList.add(post);
+                    if (post.getIdClass().equals(idClass)) {
+                        postList.add(post);
+                    }
                 }
                 notifyDataSetChanged();
             }

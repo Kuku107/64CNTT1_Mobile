@@ -3,13 +3,17 @@ package android.example.yourclassroom.view.classroom;
 import android.content.Intent;
 import android.example.yourclassroom.R;
 import android.example.yourclassroom.controller.ClasroomAdapter;
+import android.example.yourclassroom.controller.LogoutHelper;
 import android.example.yourclassroom.model.Classroom;
 import android.example.yourclassroom.repository.UserRepository;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -29,6 +33,8 @@ public class ListClassActivity extends AppCompatActivity {
     private ClasroomAdapter classroomAdapter;  // Adapter để hiển thị danh sách lớp
     private RecyclerView recyclerView;  // RecyclerView để hiển thị danh sách lớp học
     private String idUser;
+
+    private ImageView ivAccount;
 
 
     // Khởi tạo ActivityResultLauncher để xử lý kết quả từ JoinActivity
@@ -71,6 +77,7 @@ public class ListClassActivity extends AppCompatActivity {
         // Khởi tạo các thành phần UI
         ImageButton ImbCircleAdd = findViewById(R.id.imb_CircleAdd);  // Nút thêm lớp học
         recyclerView = findViewById(R.id.listclass);  // RecyclerView để hiển thị danh sách lớp học
+        ivAccount = findViewById(R.id.iv_account_exit);  // Hình đại diện tài khoản
 
         if (recyclerView == null) {
             Log.e("ListClassActivity", "Lỗi: recyclerView không tìm thấy trong layout");
@@ -83,10 +90,23 @@ public class ListClassActivity extends AppCompatActivity {
         classroomList = new ArrayList<>();
         classroomAdapter = new ClasroomAdapter(classroomList, this);
         recyclerView.setAdapter(classroomAdapter);
-
-
-
         classroomAdapter.loadData(idUser);  // Tải dữ liệu từ Firebase
+
+        ivAccount.setOnClickListener(v -> {
+            PopupMenu popup = new PopupMenu(v.getContext(), v);
+            MenuInflater inflater = popup.getMenuInflater();
+            inflater.inflate(R.menu.account_options_menu, popup.getMenu());
+
+            popup.setOnMenuItemClickListener(item -> {
+                if (item.getItemId() == R.id.action_logout) {
+                    LogoutHelper.logout(this);
+                    return true;
+                }
+                return false;
+            });
+
+            popup.show();
+        });
 
     }
 
