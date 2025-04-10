@@ -3,7 +3,8 @@ package android.example.yourclassroom.view.classroom;
 import android.content.Intent;
 import android.example.yourclassroom.R;
 import android.example.yourclassroom.controller.ClasroomAdapter;
-import android.example.yourclassroom.model.classroom;
+import android.example.yourclassroom.model.Classroom;
+import android.example.yourclassroom.repository.UserRepository;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -24,9 +25,11 @@ import java.util.List;
 
 public class ListClassActivity extends AppCompatActivity {
 
-    private List<classroom> classroomList;  // Danh sách các lớp học
+    private List<Classroom> classroomList;  // Danh sách các lớp học
     private ClasroomAdapter classroomAdapter;  // Adapter để hiển thị danh sách lớp
     private RecyclerView recyclerView;  // RecyclerView để hiển thị danh sách lớp học
+    private String idUser;
+
 
     // Khởi tạo ActivityResultLauncher để xử lý kết quả từ JoinActivity
     private final ActivityResultLauncher<Intent> joinClassLauncher = registerForActivityResult(
@@ -63,6 +66,8 @@ public class ListClassActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shows_class);  // Gán layout cho activity
 
+        idUser = UserRepository.getCurrentUserId(this);
+
         // Khởi tạo các thành phần UI
         ImageButton ImbCircleAdd = findViewById(R.id.imb_CircleAdd);  // Nút thêm lớp học
         recyclerView = findViewById(R.id.listclass);  // RecyclerView để hiển thị danh sách lớp học
@@ -79,7 +84,10 @@ public class ListClassActivity extends AppCompatActivity {
         classroomAdapter = new ClasroomAdapter(classroomList, this);
         recyclerView.setAdapter(classroomAdapter);
 
-        classroomAdapter.loadData();  // Tải dữ liệu từ Firebase
+
+
+        classroomAdapter.loadData(idUser);  // Tải dữ liệu từ Firebase
+
     }
 
     private void showChooseDialog() {

@@ -2,7 +2,7 @@ package android.example.yourclassroom.view.classroom;
 
 import android.example.yourclassroom.R;
 import android.example.yourclassroom.controller.ClasroomAdapter;
-import android.example.yourclassroom.model.classroom;
+import android.example.yourclassroom.model.Classroom;
 import android.view.MenuInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -25,7 +25,7 @@ public class ClassViewHolder extends RecyclerView.ViewHolder {
         imvMore = itemView.findViewById(R.id.imv_more);
     }
 
-    public void bind(classroom classroomItem, ClasroomAdapter clasroomAdapter) {
+    public void bind(Classroom classroomItem, ClasroomAdapter clasroomAdapter) {
         // Gán dữ liệu cho các thành phần trong ViewHolder
         tvCodeClass.setText(classroomItem.getCodeClass());
         tvclassName.setText(classroomItem.getClassName());

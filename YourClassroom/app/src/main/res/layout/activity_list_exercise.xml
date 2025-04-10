@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.exercise.ListExerciseActivity"
+    android:paddingTop="?attr/actionBarSize">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="50px"
+        android:layout_marginHorizontal="12dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:contentInsetStart="0dp"
+        app:contentInsetLeft="0dp">
+
+        <ImageButton
+            android:id="@+id/btn_back_from_list_exercise"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_arrow_back"
+            android:background="@android:color/transparent"
+            android:layout_gravity="start"/>
+
+        <ImageButton
+            android:id="@+id/imb_account"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_account"
+            android:background="@android:color/transparent"
+            android:layout_gravity="end"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <!--  Banner  -->
+
+    <!-- Đăng tin -->
+
+    <!-- Danh sách tin -->
+
+
+    <!-- Bottom Navigation -->
+
+    <Button
+        android:id="@+id/btn_add_exercise"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="15dp"
+        android:layout_marginLeft="13dp"
+        android:backgroundTint="#1A73E8"
+        android:text="+ Tạo"
+        android:textSize="16sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_list_exercise"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="13dp"
+        android:layout_weight="1" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/nav_color"
+        app:itemIconTint="@color/nav_icon_color"
+        app:itemTextColor="@color/nav_text_color"
+        app:menu="@menu/bottom_nav_menu" />
+</LinearLayout>

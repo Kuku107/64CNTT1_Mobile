@@ -3,7 +3,7 @@ package android.example.yourclassroom.view.classroom;
 import android.annotation.SuppressLint;
 import android.example.yourclassroom.R;
 import android.example.yourclassroom.controller.ClasroomAdapter;
-import android.example.yourclassroom.model.classroom;
+import android.example.yourclassroom.model.Classroom;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,7 +20,7 @@ public class CreateActivity extends AppCompatActivity {
     private ImageButton imbClose; // Nút đóng màn hình
     private EditText edtClassname; // Ô nhập tên lớp
     private Button btnCreate; // Nút tạo lớp
-    private List<classroom> classroomList; // Danh sách lớp học
+    private List<Classroom> classroomList; // Danh sách lớp học
     private ClasroomAdapter classroomAdapter; // Adapter quản lý lớp học
 
     @SuppressLint("MissingInflatedId")

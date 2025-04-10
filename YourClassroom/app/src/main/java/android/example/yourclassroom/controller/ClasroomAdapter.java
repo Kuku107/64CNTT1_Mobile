@@ -3,7 +3,8 @@ package android.example.yourclassroom.controller;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.example.yourclassroom.R;
-import android.example.yourclassroom.model.classroom;
+import android.example.yourclassroom.model.Classroom;
+import android.example.yourclassroom.repository.UserRepository;
 import android.example.yourclassroom.view.classroom.ClassViewHolder;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,15 +27,12 @@ import java.util.List;
 
 public class ClasroomAdapter extends RecyclerView.Adapter<ClassViewHolder> {
 
-    private List<classroom> classroomList; // Danh sách các lớp học
+    private List<Classroom> classroomList; // Danh sách các lớp học
     private Context context; // Context để hiển thị Toast và Dialog
     private String databaseUrl = "https://yourclassroom-6d328-default-rtdb.asia-southeast1.firebasedatabase.app/";
 
-    public String getCurrentUserId() {
-        SharedPreferences sharedPreferences = context.getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE);
-        return sharedPreferences.getString("userUID", null);
-    }
-    public ClasroomAdapter(List<classroom> classroomList, Context context) {
+
+    public ClasroomAdapter(List<Classroom> classroomList, Context context) {
         this.classroomList = (classroomList != null) ? classroomList : new ArrayList<>();
         this.context = context;
     }
@@ -56,20 +54,35 @@ public class ClasroomAdapter extends RecyclerView.Adapter<ClassViewHolder> {
         return (classroomList != null) ? classroomList.size() : 0;
     }
 
-    public void loadData() {
-        DatabaseReference myRef = FirebaseDatabase.getInstance(databaseUrl).getReference("classrooms");
+    public void loadData(String idUser) {
+        DatabaseReference myRef = FirebaseDatabase.getInstance(databaseUrl).getReference("users_classrooms");
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 classroomList.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    classroom classroom = dataSnapshot.getValue(classroom.class);
-                    if (classroom != null) {
-                        classroomList.add(classroom);
+                    String getIdUser = dataSnapshot.child("idUser").getValue(String.class);
+                    String getIdClassroom = dataSnapshot.child("idClassroom").getValue(String.class);
+                    if (getIdUser != null && getIdUser.equals(idUser) && getIdClassroom != null) {
+                        DatabaseReference classRef = FirebaseDatabase.getInstance(databaseUrl).getReference("classrooms").child(getIdClassroom);
+                        classRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                Classroom classroom = dataSnapshot.getValue(Classroom.class);
+                                if (classroom != null) {
+                                    classroomList.add(classroom);
+                                    notifyDataSetChanged();
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+                                Toast.makeText(context, "Lấy dữ liệu thất bại", Toast.LENGTH_SHORT).show();
+                            }
+                        });
                     }
                 }
-                notifyDataSetChanged();
             }
 
             @Override
@@ -80,7 +93,7 @@ public class ClasroomAdapter extends RecyclerView.Adapter<ClassViewHolder> {
     }
 
     public void joinClassroom(String codeClass) {
-        String currentUserId = getCurrentUserId();
+        String currentUserId = UserRepository.getCurrentUserId(context);
         DatabaseReference joinRef = FirebaseDatabase.getInstance(databaseUrl).getReference("users_classrooms");
         DatabaseReference classRef = FirebaseDatabase.getInstance(databaseUrl).getReference("classrooms");
 
@@ -88,11 +101,11 @@ public class ClasroomAdapter extends RecyclerView.Adapter<ClassViewHolder> {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    classroom classroom = dataSnapshot.getValue(classroom.class);
+                    Classroom classroom = dataSnapshot.getValue(Classroom.class);
                     if (classroom != null && classroom.getCodeClass().equals(codeClass)) {
                         String newId = joinRef.push().getKey();
                         if (newId != null) {
-                            joinRef.child(newId).child("idClassroom").setValue(classroom.getIdClass());
+                            joinRef.child(newId).child("idClassroom").setValue(classroom.getId());
                             joinRef.child(newId).child("idUser").setValue(currentUserId);
                         }
                     }
@@ -106,13 +119,13 @@ public class ClasroomAdapter extends RecyclerView.Adapter<ClassViewHolder> {
     }
 
     public void insertClassroom(String classname) {
-        String currentUserId = getCurrentUserId();
+        String currentUserId = UserRepository.getCurrentUserId(context);
         DatabaseReference classRef = FirebaseDatabase.getInstance(databaseUrl).getReference("classrooms");
         String newId = classRef.push().getKey();
         String generatedCode = generateClassCode();
 
         if (newId != null) {
-            classroom classroom = new classroom(newId, classname, generatedCode, currentUserId, "1", "teacher");
+            Classroom classroom = new Classroom(newId, classname, generatedCode, currentUserId);
             classRef.child(newId).setValue(classroom)
                     .addOnSuccessListener(aVoid ->
                             Toast.makeText(context, "Thêm thành công!", Toast.LENGTH_SHORT).show())
@@ -133,14 +146,14 @@ public class ClasroomAdapter extends RecyclerView.Adapter<ClassViewHolder> {
         return code.toString();
     }
 
-    public void deleteClasroom(classroom classroom) {
-        if (classroom == null || classroom.getIdClass() == null) return;
+    public void deleteClasroom(Classroom classroom) {
+        if (classroom == null || classroom.getId() == null) return;
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("Xác nhận xóa")
                 .setMessage("Bạn có chắc chắn muốn xóa không?")
                 .setPositiveButton("Xóa", (dialog, which) -> {
-                    DatabaseReference myRef = FirebaseDatabase.getInstance(databaseUrl).getReference("classrooms").child(classroom.getIdClass());
+                    DatabaseReference myRef = FirebaseDatabase.getInstance(databaseUrl).getReference("classrooms").child(classroom.getId());
                     myRef.removeValue()
                             .addOnSuccessListener(aVoid ->
                                     Toast.makeText(context, "Xóa thành công!", Toast.LENGTH_SHORT).show())

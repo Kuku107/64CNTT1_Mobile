@@ -3,7 +3,7 @@ package android.example.yourclassroom.view.classroom;
 import android.annotation.SuppressLint;
 import android.example.yourclassroom.R;
 import android.example.yourclassroom.controller.ClasroomAdapter;
-import android.example.yourclassroom.model.classroom;
+import android.example.yourclassroom.model.Classroom;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -21,7 +21,7 @@ public class JoinActivity extends AppCompatActivity {
     private ImageButton imbclose;  // Nút đóng activity
     private EditText edtcode;  // EditText để nhập mã lớp
     private Button btnjoin;  // Nút tham gia lớp
-    private List<classroom> classroomList;  // Danh sách các lớp học
+    private List<Classroom> classroomList;  // Danh sách các lớp học
     private ClasroomAdapter classroomAdapter;  // Adapter để hiển thị danh sách lớp
 
     @SuppressLint("MissingInflatedId")

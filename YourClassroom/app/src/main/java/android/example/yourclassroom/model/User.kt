@@ -1,3 +1,4 @@
 package android.example.yourclassroom.model
 
-data class User(val email: String, val password: String?, val fullName: String?)
+data class User(val email: String, val password: String?, val fullName: String?, val id: String?) {
+}

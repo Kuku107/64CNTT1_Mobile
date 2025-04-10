@@ -2,23 +2,29 @@ package android.example.yourclassroom.controller
 
 import android.content.Context
 import android.content.Intent
+import android.example.yourclassroom.R
 import android.example.yourclassroom.model.AuthModel
 import android.example.yourclassroom.model.User
-import android.example.yourclassroom.R
 import android.example.yourclassroom.view.auth.CustomDialog
 import android.example.yourclassroom.view.auth.ForgotPasswordScreen
-import android.example.yourclassroom.view.classroom.ListClassActivity
 import android.example.yourclassroom.view.auth.LoginScreen
 import android.example.yourclassroom.view.auth.RegistrationScreen
+import android.example.yourclassroom.view.classroom.ListClassActivity
+import android.example.yourclassroom.view.exercise.ListExerciseActivity
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.runtime.*
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.compose.*
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.coroutines.launch
 
@@ -31,6 +37,7 @@ class ComposeActivity : ComponentActivity() {
 
         val sharedPreferences = getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE)
         val isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false)
+
 
         if (isLoggedIn) {
             startActivity(Intent(this, ListClassActivity::class.java))
@@ -65,7 +72,7 @@ class ComposeActivity : ComponentActivity() {
                                 }
 
                                 lifecycleScope.launch {
-                                    val result = authModel.login(User(email, password, null))
+                                    val result = authModel.login(User(email, password, null, null))
                                     if (result.isSuccess) {
                                         val user = result.getOrNull()
                                         saveLoginToPrefs(user)
@@ -119,11 +126,11 @@ class ComposeActivity : ComponentActivity() {
                                 }
 
                                 lifecycleScope.launch {
-                                    val result = authModel.register(User(email, password, fullName))
+                                    val result = authModel.register(User(email, password, fullName, null))
                                     if (result.isSuccess) {
                                         val user = result.getOrNull()
                                         if (user != null) {
-                                            authModel.saveUserToDatabase(user, User(email, password, fullName))
+                                            authModel.saveUserToDatabase(user, User(email, password, fullName, user.uid))
                                         }
                                         dialogMessage = "Đăng ký thành công! Vui lòng xác nhận email!"
                                         navController.popBackStack()
