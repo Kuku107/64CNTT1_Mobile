@@ -1,0 +1,938 @@
+{
+  "attachments": {
+    "-ONWUgfKyNRC0nQ_83mx": {
+      "filename": "STRESS + TEST 9-12A2.pdf",
+      "id": "-ONWUgfKyNRC0nQ_83mx",
+      "idExercise": "-ONWUgfJM8XFObMTwGSf",
+      "uri": "https://firebasestorage.googleapis.com/v0/b/yourclassroom-6d328.firebasestorage.app/o/exercises%2FSTRESS%20%2B%20TEST%209-12A2.pdf?alt=media&token=db4af95e-f65f-4007-828e-b12c83676fbd"
+    },
+    "-ONWVKrg-SIxPs4MJGms": {
+      "filename": "Tnc the ca KOI 2025.pdf",
+      "id": "-ONWVKrg-SIxPs4MJGms",
+      "idExercise": "-ONWUgfJM8XFObMTwGSf",
+      "idSubmission": "-ONWVKrezNI_tF2gfhFJ",
+      "idUser": "WGXtnGRLnVQYeRUSTAV5WnkH7ps2",
+      "uri": "https://firebasestorage.googleapis.com/v0/b/yourclassroom-6d328.firebasestorage.app/o/assignments%2FTnc%20the%20ca%20KOI%202025.pdf?alt=media&token=0f345a23-23f4-4e6f-ab30-80c97eb063ff"
+    },
+    "-ONYngWUL49rZOgqOrLB": {
+      "filename": "BTTH04_Ung dung voi CSDL.pdf",
+      "id": "-ONYngWUL49rZOgqOrLB",
+      "idExercise": "-ONYngWUL49rZOgqOrLA",
+      "uri": "https://firebasestorage.googleapis.com/v0/b/yourclassroom-6d328.firebasestorage.app/o/exercises%2FBTTH04_Ung%20dung%20voi%20CSDL.pdf?alt=media&token=0f47e32a-7d0b-4f1b-937b-7d309b5b2246"
+    },
+    "-ONYoPWHIkQRp6BN9Z9s": {
+      "filename": "BTTH05_Cac chu de nang cao.pdf",
+      "id": "-ONYoPWHIkQRp6BN9Z9s",
+      "idExercise": "-ONYoPWHIkQRp6BN9Z9r",
+      "uri": "https://firebasestorage.googleapis.com/v0/b/yourclassroom-6d328.firebasestorage.app/o/exercises%2FBTTH05_Cac%20chu%20de%20nang%20cao.pdf?alt=media&token=b8e37a2d-4b53-4733-9d07-bfa0273e1e48"
+    },
+    "-ONYopMMhTap9VQYdtJA": {
+      "filename": "TLU_Practical Android App Dev with Java.pdf",
+      "id": "-ONYopMMhTap9VQYdtJA",
+      "idExercise": "-ONYopMMhTap9VQYdtJ9",
+      "uri": "https://firebasestorage.googleapis.com/v0/b/yourclassroom-6d328.firebasestorage.app/o/exercises%2FTLU_Practical%20Android%20App%20Dev%20with%20Java.pdf?alt=media&token=d35679d0-d83e-45c7-b027-e9e406fe0502"
+    },
+    "-ONYopMOcTucaN-DmScl": {
+      "filename": "BaiTap_Kotlin.pdf",
+      "id": "-ONYopMOcTucaN-DmScl",
+      "idExercise": "-ONYopMMhTap9VQYdtJ9",
+      "uri": "https://firebasestorage.googleapis.com/v0/b/yourclassroom-6d328.firebasestorage.app/o/exercises%2FBaiTap_Kotlin.pdf?alt=media&token=4ea223eb-a5de-437c-8506-46df27759163"
+    },
+    "-ONYrvY6Nb4TaQGBjA6c": {
+      "filename": "CÂU ĐỒNG NGHĨA-SO SÁNH-HS.doc.pdf",
+      "id": "-ONYrvY6Nb4TaQGBjA6c",
+      "idExercise": "-ONWUgfJM8XFObMTwGSf",
+      "idSubmission": "-ONYrvY5Tv-1jOQyK1TX",
+      "idUser": "ksdEQPXiH2aLAFf09HDrqjB8Giq2",
+      "uri": "https://firebasestorage.googleapis.com/v0/b/yourclassroom-6d328.firebasestorage.app/o/assignments%2FC%C3%82U%20%C4%90%E1%BB%92NG%20NGH%C4%A8A-SO%20S%C3%81NH-HS.doc.pdf?alt=media&token=c0685ea4-a13e-4988-b097-f02beb58776c"
+    },
+    "-ONYrybxB7x4wcg90IsL": {
+      "filename": "BTTH04_Ung dung voi CSDL.pdf",
+      "id": "-ONYrybxB7x4wcg90IsL",
+      "idExercise": "-ONYngWUL49rZOgqOrLA",
+      "idSubmission": "-ONYrybw7TsW0aibKnb3",
+      "idUser": "ksdEQPXiH2aLAFf09HDrqjB8Giq2",
+      "uri": "https://firebasestorage.googleapis.com/v0/b/yourclassroom-6d328.firebasestorage.app/o/assignments%2FBTTH04_Ung%20dung%20voi%20CSDL.pdf?alt=media&token=ff85d5fe-1e8d-48b8-a31c-8c42c81798a3"
+    },
+    "-ONYs0G0fKHwrAmON4kD": {
+      "filename": "BTTH05_Cac chu de nang cao.pdf",
+      "id": "-ONYs0G0fKHwrAmON4kD",
+      "idExercise": "-ONYoPWHIkQRp6BN9Z9r",
+      "idSubmission": "-ONYs0G-NX-ycaDmIjrZ",
+      "idUser": "ksdEQPXiH2aLAFf09HDrqjB8Giq2",
+      "uri": "https://firebasestorage.googleapis.com/v0/b/yourclassroom-6d328.firebasestorage.app/o/assignments%2FBTTH05_Cac%20chu%20de%20nang%20cao.pdf?alt=media&token=2904fa36-dd51-473e-b893-754727e11d31"
+    },
+    "-ONYs68yQGgLg1vB8M3x": {
+      "filename": "TLU_Practical Android App Dev with Java.pdf",
+      "id": "-ONYs68yQGgLg1vB8M3x",
+      "idExercise": "-ONYopMMhTap9VQYdtJ9",
+      "idSubmission": "-ONYs68xJAgkXGddr4Jp",
+      "idUser": "ksdEQPXiH2aLAFf09HDrqjB8Giq2",
+      "uri": "https://firebasestorage.googleapis.com/v0/b/yourclassroom-6d328.firebasestorage.app/o/assignments%2FTLU_Practical%20Android%20App%20Dev%20with%20Java.pdf?alt=media&token=6736d180-4836-43ab-bc0a-303d23078f37"
+    },
+    "-ONYs68yQGgLg1vB8M3y": {
+      "filename": "BaiTap_Kotlin.pdf",
+      "id": "-ONYs68yQGgLg1vB8M3y",
+      "idExercise": "-ONYopMMhTap9VQYdtJ9",
+      "idSubmission": "-ONYs68xJAgkXGddr4Jp",
+      "idUser": "ksdEQPXiH2aLAFf09HDrqjB8Giq2",
+      "uri": "https://firebasestorage.googleapis.com/v0/b/yourclassroom-6d328.firebasestorage.app/o/assignments%2FBaiTap_Kotlin.pdf?alt=media&token=01944517-4df7-4985-81c9-76035eb47cca"
+    },
+    "-ONZ82MHMh2rHDLNdgBL": {
+      "filename": "CÂU ĐỒNG NGHĨA-SO SÁNH-HS.doc.pdf",
+      "id": "-ONZ82MHMh2rHDLNdgBL",
+      "idExercise": "-ONZ82MHMh2rHDLNdgBK",
+      "uri": "https://firebasestorage.googleapis.com/v0/b/yourclassroom-6d328.firebasestorage.app/o/exercises%2FC%C3%82U%20%C4%90%E1%BB%92NG%20NGH%C4%A8A-SO%20S%C3%81NH-HS.doc.pdf?alt=media&token=b9d4e2ed-0930-492f-b737-2e4fc53f3fea"
+    },
+    "-ONZ84uTUX87Mtiw4O7i": {
+      "filename": "scoreboard.pdf",
+      "id": "-ONZ84uTUX87Mtiw4O7i",
+      "idExercise": "-ONZ84uR_anCo9XvQ5dX",
+      "uri": "https://firebasestorage.googleapis.com/v0/b/yourclassroom-6d328.firebasestorage.app/o/exercises%2Fscoreboard.pdf?alt=media&token=129de877-7ef7-417d-b8d0-6fa72b833caa"
+    },
+    "-ONZNimvMkYdKbtGVc2R": {
+      "filename": "TTUD-01-02.pdf",
+      "id": "-ONZNimvMkYdKbtGVc2R",
+      "idExercise": "-ONZNimvMkYdKbtGVc2Q",
+      "uri": "https://firebasestorage.googleapis.com/v0/b/yourclassroom-6d328.firebasestorage.app/o/exercises%2FTTUD-01-02.pdf?alt=media&token=df84a63d-879c-426f-be85-ea0535b44b66"
+    },
+    "-ONZO_V3UGBhvMuOKnXK": {
+      "filename": "TTUD-03-04.pdf",
+      "id": "-ONZO_V3UGBhvMuOKnXK",
+      "idExercise": "-ONZO_V2kfB915aFSpKL",
+      "uri": "https://firebasestorage.googleapis.com/v0/b/yourclassroom-6d328.firebasestorage.app/o/exercises%2FTTUD-03-04.pdf?alt=media&token=df594ca8-54d4-416e-b49d-c70b00ae00a1"
+    },
+    "-ONZP4CuWgYvcSVQvtKZ": {
+      "filename": "TTUD-10.pdf",
+      "id": "-ONZP4CuWgYvcSVQvtKZ",
+      "idExercise": "-ONZP4CtZB6N8vZ9QOO0",
+      "uri": "https://firebasestorage.googleapis.com/v0/b/yourclassroom-6d328.firebasestorage.app/o/exercises%2FTTUD-10.pdf?alt=media&token=b1c03898-5288-4e69-83d2-3c8755073859"
+    }
+  },
+  "classrooms": {
+    "-ONWUTh72RGNuvZhBx9i": {
+      "className": "Mobile",
+      "codeClass": "X9C0TV0P",
+      "id": "-ONWUTh72RGNuvZhBx9i",
+      "idTeacher": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2"
+    },
+    "-ONYkyC3NA6_D7Ijj8JP": {
+      "className": "TTUD",
+      "codeClass": "4PJT097I",
+      "id": "-ONYkyC3NA6_D7Ijj8JP",
+      "idTeacher": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2"
+    },
+    "-ONZ5UWZUbUsR8bG4TGF": {
+      "className": "12A5",
+      "codeClass": "ARZW06C1",
+      "id": "-ONZ5UWZUbUsR8bG4TGF",
+      "idTeacher": "YpmBP8NIuXPd5865nImT3oZJhdN2"
+    },
+    "-ONZLDGzVQ2FmdDM1iEg": {
+      "className": "olala",
+      "codeClass": "WPBXF17F",
+      "id": "-ONZLDGzVQ2FmdDM1iEg",
+      "idTeacher": "LUtKy9iBWuNAK6ItBJVnYPQ3mKD2"
+    },
+    "-ONZLdGaMTmara1WZG40": {
+      "className": "chicken",
+      "codeClass": "6TZKSJTM",
+      "id": "-ONZLdGaMTmara1WZG40",
+      "idTeacher": "LUtKy9iBWuNAK6ItBJVnYPQ3mKD2"
+    },
+    "-ONZLigEHD32pe6BSfUx": {
+      "className": "xaranghe",
+      "codeClass": "T8BRRMZL",
+      "id": "-ONZLigEHD32pe6BSfUx",
+      "idTeacher": "LUtKy9iBWuNAK6ItBJVnYPQ3mKD2"
+    },
+    "-ONZPWG82tQB9vJUcEXO": {
+      "className": "TTNT",
+      "codeClass": "GIPUUJ07",
+      "id": "-ONZPWG82tQB9vJUcEXO",
+      "idTeacher": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2"
+    }
+  },
+  "exercises": {
+    "-ONWUgfJM8XFObMTwGSf": {
+      "createAt": {
+        "date": 11,
+        "day": 5,
+        "hours": 3,
+        "minutes": 58,
+        "month": 3,
+        "seconds": 0,
+        "time": 1744318680184,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "expired": {
+        "date": 12,
+        "day": 6,
+        "hours": 3,
+        "minutes": 57,
+        "month": 3,
+        "seconds": 31,
+        "time": 1744405051792,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "id": "-ONWUgfJM8XFObMTwGSf",
+      "idAuthor": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2",
+      "idClass": "-ONWUTh72RGNuvZhBx9i",
+      "instruction": "",
+      "title": "Bài tập"
+    },
+    "-ONYngWUL49rZOgqOrLA": {
+      "createAt": {
+        "date": 11,
+        "day": 5,
+        "hours": 14,
+        "minutes": 44,
+        "month": 3,
+        "seconds": 37,
+        "time": 1744357477282,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "expired": {
+        "date": 13,
+        "day": 0,
+        "hours": 14,
+        "minutes": 43,
+        "month": 3,
+        "seconds": 57,
+        "time": 1744530237175,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "id": "-ONYngWUL49rZOgqOrLA",
+      "idAuthor": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2",
+      "idClass": "-ONWUTh72RGNuvZhBx9i",
+      "instruction": "",
+      "title": "Bài tập thực hành 4"
+    },
+    "-ONYoPWHIkQRp6BN9Z9r": {
+      "createAt": {
+        "date": 11,
+        "day": 5,
+        "hours": 14,
+        "minutes": 47,
+        "month": 3,
+        "seconds": 45,
+        "time": 1744357665687,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "expired": {
+        "date": 13,
+        "day": 0,
+        "hours": 14,
+        "minutes": 47,
+        "month": 3,
+        "seconds": 10,
+        "time": 1744530430057,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "id": "-ONYoPWHIkQRp6BN9Z9r",
+      "idAuthor": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2",
+      "idClass": "-ONWUTh72RGNuvZhBx9i",
+      "instruction": "",
+      "title": "Bài tập thực hành 5"
+    },
+    "-ONYopMMhTap9VQYdtJ9": {
+      "createAt": {
+        "date": 11,
+        "day": 5,
+        "hours": 14,
+        "minutes": 49,
+        "month": 3,
+        "seconds": 35,
+        "time": 1744357775644,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "expired": {
+        "date": 14,
+        "day": 1,
+        "hours": 14,
+        "minutes": 47,
+        "month": 3,
+        "seconds": 54,
+        "time": 1744616874192,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "id": "-ONYopMMhTap9VQYdtJ9",
+      "idAuthor": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2",
+      "idClass": "-ONWUTh72RGNuvZhBx9i",
+      "instruction": "Làm theo file mẫu",
+      "title": "Nộp bản dịch và tiến độ Kotlin Challenge"
+    },
+    "-ONZ82MHMh2rHDLNdgBK": {
+      "createAt": {
+        "date": 11,
+        "day": 5,
+        "hours": 16,
+        "minutes": 17,
+        "month": 3,
+        "seconds": 55,
+        "time": 1744363075850,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "expired": {
+        "date": 13,
+        "day": 0,
+        "hours": 16,
+        "minutes": 15,
+        "month": 3,
+        "seconds": 4,
+        "time": 1744535704174,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "id": "-ONZ82MHMh2rHDLNdgBK",
+      "idAuthor": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2",
+      "idClass": "-ONWUTh72RGNuvZhBx9i",
+      "instruction": "",
+      "title": "Bài tập ôn luyện"
+    },
+    "-ONZ84uR_anCo9XvQ5dX": {
+      "createAt": {
+        "date": 11,
+        "day": 5,
+        "hours": 16,
+        "minutes": 18,
+        "month": 3,
+        "seconds": 2,
+        "time": 1744363082948,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "expired": {
+        "date": 12,
+        "day": 6,
+        "hours": 16,
+        "minutes": 13,
+        "month": 3,
+        "seconds": 7,
+        "time": 1744449187531,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "id": "-ONZ84uR_anCo9XvQ5dX",
+      "idAuthor": "YpmBP8NIuXPd5865nImT3oZJhdN2",
+      "idClass": "-ONZ5UWZUbUsR8bG4TGF",
+      "instruction": "Các bạn chú ý bấm thời gian làm bài xem mình được bao nhiêu",
+      "title": "Đề khảo sát chất lượng tỉnh Vĩnh Phúc"
+    },
+    "-ONZLYqv29FkEyKxn7ZF": {
+      "createAt": {
+        "date": 11,
+        "day": 5,
+        "hours": 17,
+        "minutes": 16,
+        "month": 3,
+        "seconds": 55,
+        "time": 1744366615988,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "expired": {
+        "date": 13,
+        "day": 0,
+        "hours": 17,
+        "minutes": 16,
+        "month": 3,
+        "seconds": 10,
+        "time": 1744539370148,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "id": "-ONZLYqv29FkEyKxn7ZF",
+      "idAuthor": "LUtKy9iBWuNAK6ItBJVnYPQ3mKD2",
+      "idClass": "-ONZLDGzVQ2FmdDM1iEg",
+      "instruction": "dsa",
+      "title": "adg"
+    },
+    "-ONZNimvMkYdKbtGVc2Q": {
+      "createAt": {
+        "date": 11,
+        "day": 5,
+        "hours": 17,
+        "minutes": 26,
+        "month": 3,
+        "seconds": 25,
+        "time": 1744367185905,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "expired": {
+        "date": 12,
+        "day": 6,
+        "hours": 17,
+        "minutes": 25,
+        "month": 3,
+        "seconds": 27,
+        "time": 1744453527233,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "id": "-ONZNimvMkYdKbtGVc2Q",
+      "idAuthor": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2",
+      "idClass": "-ONYkyC3NA6_D7Ijj8JP",
+      "instruction": "",
+      "title": "Bài tập buổi 1-2"
+    },
+    "-ONZO_V2kfB915aFSpKL": {
+      "createAt": {
+        "date": 11,
+        "day": 5,
+        "hours": 17,
+        "minutes": 30,
+        "month": 3,
+        "seconds": 9,
+        "time": 1744367409961,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "expired": {
+        "date": 13,
+        "day": 0,
+        "hours": 17,
+        "minutes": 29,
+        "month": 3,
+        "seconds": 9,
+        "time": 1744540149075,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "id": "-ONZO_V2kfB915aFSpKL",
+      "idAuthor": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2",
+      "idClass": "-ONYkyC3NA6_D7Ijj8JP",
+      "instruction": "",
+      "title": "Bài tập tuần 3-4"
+    },
+    "-ONZP4CtZB6N8vZ9QOO0": {
+      "createAt": {
+        "date": 11,
+        "day": 5,
+        "hours": 17,
+        "minutes": 32,
+        "month": 3,
+        "seconds": 19,
+        "time": 1744367539873,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "expired": {
+        "date": 13,
+        "day": 0,
+        "hours": 17,
+        "minutes": 32,
+        "month": 3,
+        "seconds": 0,
+        "time": 1744540320660,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "id": "-ONZP4CtZB6N8vZ9QOO0",
+      "idAuthor": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2",
+      "idClass": "-ONYkyC3NA6_D7Ijj8JP",
+      "instruction": "",
+      "title": "Bài tập buổi 10"
+    }
+  },
+  "posts": {
+    "-ONWUggWNANSQXF2x9mv": {
+      "author": "Nguyen Trung Duc",
+      "content": "Bài tập",
+      "createdAt": {
+        "date": 11,
+        "day": 5,
+        "hours": 3,
+        "minutes": 58,
+        "month": 3,
+        "seconds": 0,
+        "time": 1744318680392,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "id": "-ONWUggWNANSQXF2x9mv",
+      "idClass": "-ONWUTh72RGNuvZhBx9i",
+      "idExercise": "-ONWUgfJM8XFObMTwGSf",
+      "idUser": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2"
+    },
+    "-ONYlxuGOEnyOCuNnBJf": {
+      "author": "Nguyen Trung Duc",
+      "content": "Ngày mai cả lớp nghỉ nhé. Tôi sẽ thông báo lịch học bù sau.",
+      "createdAt": {
+        "date": 11,
+        "day": 5,
+        "hours": 14,
+        "minutes": 37,
+        "month": 3,
+        "seconds": 4,
+        "time": 1744357024364,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "id": "-ONYlxuGOEnyOCuNnBJf",
+      "idClass": "-ONWUTh72RGNuvZhBx9i",
+      "idUser": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2"
+    },
+    "-ONYngXZaRnyDDfXRS_u": {
+      "author": "Nguyen Trung Duc",
+      "content": "Bài tập thực hành 4",
+      "createdAt": {
+        "date": 11,
+        "day": 5,
+        "hours": 14,
+        "minutes": 44,
+        "month": 3,
+        "seconds": 37,
+        "time": 1744357477582,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "id": "-ONYngXZaRnyDDfXRS_u",
+      "idClass": "-ONWUTh72RGNuvZhBx9i",
+      "idExercise": "-ONYngWUL49rZOgqOrLA",
+      "idUser": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2"
+    },
+    "-ONYoAnOBDbwiP-wPDoO": {
+      "author": "Nguyen Trung Duc",
+      "content": "Lớp học bù vào:\nTiết 5-6 ngày 17/4/2025.\nLớp trưởng nhắc các bạn!",
+      "createdAt": {
+        "date": 11,
+        "day": 5,
+        "hours": 14,
+        "minutes": 46,
+        "month": 3,
+        "seconds": 45,
+        "time": 1744357605521,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "id": "-ONYoAnOBDbwiP-wPDoO",
+      "idClass": "-ONWUTh72RGNuvZhBx9i",
+      "idUser": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2"
+    },
+    "-ONYoPWpmF04LFRqLHVx": {
+      "author": "Nguyen Trung Duc",
+      "content": "Bài tập thực hành 5",
+      "createdAt": {
+        "date": 11,
+        "day": 5,
+        "hours": 14,
+        "minutes": 47,
+        "month": 3,
+        "seconds": 45,
+        "time": 1744357665898,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "id": "-ONYoPWpmF04LFRqLHVx",
+      "idClass": "-ONWUTh72RGNuvZhBx9i",
+      "idExercise": "-ONYoPWHIkQRp6BN9Z9r",
+      "idUser": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2"
+    },
+    "-ONYopNJsj1W6OPc5trr": {
+      "author": "Nguyen Trung Duc",
+      "content": "Nộp bản dịch và tiến độ Kotlin Challenge",
+      "createdAt": {
+        "date": 11,
+        "day": 5,
+        "hours": 14,
+        "minutes": 49,
+        "month": 3,
+        "seconds": 35,
+        "time": 1744357775852,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "id": "-ONYopNJsj1W6OPc5trr",
+      "idClass": "-ONWUTh72RGNuvZhBx9i",
+      "idExercise": "-ONYopMMhTap9VQYdtJ9",
+      "idUser": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2"
+    },
+    "-ONYqLyrtrM2yqra0z8v": {
+      "author": "Nguyen Trung Duc",
+      "content": "Lớp ôn tập và chuẩn bị bài để mai kiểm tra đạt kết quả tốt!",
+      "createdAt": {
+        "date": 11,
+        "day": 5,
+        "hours": 14,
+        "minutes": 56,
+        "month": 3,
+        "seconds": 15,
+        "time": 1744358175595,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "id": "-ONYqLyrtrM2yqra0z8v",
+      "idClass": "-ONWUTh72RGNuvZhBx9i",
+      "idUser": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2"
+    },
+    "-ONZ6QP0sitOZpl9K6Xk": {
+      "author": "Le Van Duc",
+      "content": "Đề nghị các bạn mới vào nộp học phí 5.000.000VND vào tài khoản BIDV-0824122387",
+      "createdAt": {
+        "date": 11,
+        "day": 5,
+        "hours": 16,
+        "minutes": 10,
+        "month": 3,
+        "seconds": 46,
+        "time": 1744362646808,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "id": "-ONZ6QP0sitOZpl9K6Xk",
+      "idClass": "-ONZ5UWZUbUsR8bG4TGF",
+      "idUser": "YpmBP8NIuXPd5865nImT3oZJhdN2"
+    },
+    "-ONZ82NcaKyhJhXmTpto": {
+      "author": "Nguyen Trung Duc",
+      "content": "Bài tập ôn luyện",
+      "createdAt": {
+        "date": 11,
+        "day": 5,
+        "hours": 16,
+        "minutes": 17,
+        "month": 3,
+        "seconds": 56,
+        "time": 1744363076076,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "id": "-ONZ82NcaKyhJhXmTpto",
+      "idClass": "-ONWUTh72RGNuvZhBx9i",
+      "idExercise": "-ONZ82MHMh2rHDLNdgBK",
+      "idUser": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2"
+    },
+    "-ONZJPOaroV256c_0DkV": {
+      "author": "Nguyen Trung Duc",
+      "content": "Thông tin liên hệ:\nHọ tên: Nguyễn Trung Đức\nEmail: nguyennduc2004@gmail.com",
+      "createdAt": {
+        "date": 11,
+        "day": 5,
+        "hours": 17,
+        "minutes": 7,
+        "month": 3,
+        "seconds": 33,
+        "time": 1744366053879,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "id": "-ONZJPOaroV256c_0DkV",
+      "idClass": "-ONYkyC3NA6_D7Ijj8JP",
+      "idUser": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2"
+    },
+    "-ONZKCPsmPpEWzbX3Sdm": {
+      "author": "Nguyen Trung Duc",
+      "content": "Ngày mai chúng ta học về Thuật toán tham lam và Quy hoạch động. Các em đọc và chuẩn bị bài trước.",
+      "createdAt": {
+        "date": 11,
+        "day": 5,
+        "hours": 17,
+        "minutes": 11,
+        "month": 3,
+        "seconds": 2,
+        "time": 1744366262899,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "id": "-ONZKCPsmPpEWzbX3Sdm",
+      "idClass": "-ONYkyC3NA6_D7Ijj8JP",
+      "idUser": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2"
+    },
+    "-ONZLK85HHCMb8-7-Pdd": {
+      "author": "Tran Van Hoa",
+      "content": "sasuke",
+      "createdAt": {
+        "date": 11,
+        "day": 5,
+        "hours": 17,
+        "minutes": 15,
+        "month": 3,
+        "seconds": 55,
+        "time": 1744366555924,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "id": "-ONZLK85HHCMb8-7-Pdd",
+      "idClass": "-ONZLDGzVQ2FmdDM1iEg",
+      "idUser": "LUtKy9iBWuNAK6ItBJVnYPQ3mKD2"
+    },
+    "-ONZLYr3Vb-UjYOjteEv": {
+      "author": "Tran Van Hoa",
+      "content": "adg",
+      "createdAt": {
+        "date": 11,
+        "day": 5,
+        "hours": 17,
+        "minutes": 16,
+        "month": 3,
+        "seconds": 56,
+        "time": 1744366616189,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "id": "-ONZLYr3Vb-UjYOjteEv",
+      "idClass": "-ONZLDGzVQ2FmdDM1iEg",
+      "idExercise": "-ONZLYqv29FkEyKxn7ZF",
+      "idUser": "LUtKy9iBWuNAK6ItBJVnYPQ3mKD2"
+    },
+    "-ONZNioBd7Z6ZUqDXBAv": {
+      "author": "Nguyen Trung Duc",
+      "content": "Bài tập buổi 1-2",
+      "createdAt": {
+        "date": 11,
+        "day": 5,
+        "hours": 17,
+        "minutes": 26,
+        "month": 3,
+        "seconds": 26,
+        "time": 1744367186126,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "id": "-ONZNioBd7Z6ZUqDXBAv",
+      "idClass": "-ONYkyC3NA6_D7Ijj8JP",
+      "idExercise": "-ONZNimvMkYdKbtGVc2Q",
+      "idUser": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2"
+    },
+    "-ONZO_WQnMXBI-_s_3Vw": {
+      "author": "Nguyen Trung Duc",
+      "content": "Bài tập tuần 3-4",
+      "createdAt": {
+        "date": 11,
+        "day": 5,
+        "hours": 17,
+        "minutes": 30,
+        "month": 3,
+        "seconds": 10,
+        "time": 1744367410247,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "id": "-ONZO_WQnMXBI-_s_3Vw",
+      "idClass": "-ONYkyC3NA6_D7Ijj8JP",
+      "idExercise": "-ONZO_V2kfB915aFSpKL",
+      "idUser": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2"
+    },
+    "-ONZOqfYbWB7LHNg_EtN": {
+      "author": "Nguyen Trung Duc",
+      "content": "Thầy có việc đột xuất, các em nghỉ nhé",
+      "createdAt": {
+        "date": 11,
+        "day": 5,
+        "hours": 17,
+        "minutes": 31,
+        "month": 3,
+        "seconds": 20,
+        "time": 1744367480449,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "id": "-ONZOqfYbWB7LHNg_EtN",
+      "idClass": "-ONYkyC3NA6_D7Ijj8JP",
+      "idUser": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2"
+    },
+    "-ONZP4DbL9G8SDdrJRCf": {
+      "author": "Nguyen Trung Duc",
+      "content": "Bài tập buổi 10",
+      "createdAt": {
+        "date": 11,
+        "day": 5,
+        "hours": 17,
+        "minutes": 32,
+        "month": 3,
+        "seconds": 20,
+        "time": 1744367540068,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "id": "-ONZP4DbL9G8SDdrJRCf",
+      "idClass": "-ONYkyC3NA6_D7Ijj8JP",
+      "idExercise": "-ONZP4CtZB6N8vZ9QOO0",
+      "idUser": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2"
+    },
+    "-ONZRpVePO5Ly25kDhsg": {
+      "author": "Nguyen Trung Duc",
+      "content": "Thầy xin thông báo lịch học trong tuần này như sau:\n\nBuổi học tiếp theo sẽ diễn ra vào lúc 8:00 sáng thứ Hai, 14 tháng 4.",
+      "createdAt": {
+        "date": 11,
+        "day": 5,
+        "hours": 17,
+        "minutes": 44,
+        "month": 3,
+        "seconds": 22,
+        "time": 1744368262079,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "id": "-ONZRpVePO5Ly25kDhsg",
+      "idClass": "-ONZPWG82tQB9vJUcEXO",
+      "idUser": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2"
+    }
+  },
+  "submissions": {
+    "-ONWVKrezNI_tF2gfhFJ": {
+      "id": "-ONWVKrezNI_tF2gfhFJ",
+      "idExercise": "-ONWUgfJM8XFObMTwGSf",
+      "idUser": "WGXtnGRLnVQYeRUSTAV5WnkH7ps2",
+      "score": 100
+    },
+    "-ONYrvY5Tv-1jOQyK1TX": {
+      "id": "-ONYrvY5Tv-1jOQyK1TX",
+      "idExercise": "-ONWUgfJM8XFObMTwGSf",
+      "idUser": "ksdEQPXiH2aLAFf09HDrqjB8Giq2",
+      "score": 60
+    },
+    "-ONYrybw7TsW0aibKnb3": {
+      "id": "-ONYrybw7TsW0aibKnb3",
+      "idExercise": "-ONYngWUL49rZOgqOrLA",
+      "idUser": "ksdEQPXiH2aLAFf09HDrqjB8Giq2",
+      "score": 100
+    },
+    "-ONYs0G-NX-ycaDmIjrZ": {
+      "id": "-ONYs0G-NX-ycaDmIjrZ",
+      "idExercise": "-ONYoPWHIkQRp6BN9Z9r",
+      "idUser": "ksdEQPXiH2aLAFf09HDrqjB8Giq2",
+      "score": 100
+    },
+    "-ONYs68xJAgkXGddr4Jp": {
+      "id": "-ONYs68xJAgkXGddr4Jp",
+      "idExercise": "-ONYopMMhTap9VQYdtJ9",
+      "idUser": "ksdEQPXiH2aLAFf09HDrqjB8Giq2",
+      "score": 80
+    },
+    "-ONYsNqm55-85TlhOoHo": {
+      "id": "-ONYsNqm55-85TlhOoHo",
+      "idExercise": "-ONYngWUL49rZOgqOrLA",
+      "idUser": "WGXtnGRLnVQYeRUSTAV5WnkH7ps2",
+      "score": 0
+    },
+    "-ONYsPDNRpqqtyWtf6R8": {
+      "id": "-ONYsPDNRpqqtyWtf6R8",
+      "idExercise": "-ONYoPWHIkQRp6BN9Z9r",
+      "idUser": "WGXtnGRLnVQYeRUSTAV5WnkH7ps2",
+      "score": 0
+    },
+    "-ONYsRW7xxWQ23C09o1b": {
+      "id": "-ONYsRW7xxWQ23C09o1b",
+      "idExercise": "-ONYopMMhTap9VQYdtJ9",
+      "idUser": "WGXtnGRLnVQYeRUSTAV5WnkH7ps2",
+      "score": 0
+    },
+    "-ONZ8NJOJjuOAhFPKMaX": {
+      "id": "-ONZ8NJOJjuOAhFPKMaX",
+      "idExercise": "-ONWUgfJM8XFObMTwGSf",
+      "idUser": "YpmBP8NIuXPd5865nImT3oZJhdN2",
+      "score": 0
+    },
+    "-ONZCdLmhjLfKZGtK6Ib": {
+      "id": "-ONZCdLmhjLfKZGtK6Ib",
+      "idExercise": "-ONZ84uR_anCo9XvQ5dX",
+      "idUser": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2",
+      "score": 55
+    }
+  },
+  "users": {
+    "LUtKy9iBWuNAK6ItBJVnYPQ3mKD2": {
+      "email": "ghego111@gmail.com",
+      "fullname": "Tran Van Hoa",
+      "id": "LUtKy9iBWuNAK6ItBJVnYPQ3mKD2"
+    },
+    "WGXtnGRLnVQYeRUSTAV5WnkH7ps2": {
+      "email": "ducdai.chy@gmail.com",
+      "fullname": "Đức Đại",
+      "id": "WGXtnGRLnVQYeRUSTAV5WnkH7ps2"
+    },
+    "XPn2jj3ShfZ052EY9NJXb8OXbxJ2": {
+      "email": "nguyennduc2004@gmail.com",
+      "fullname": "Nguyen Trung Duc",
+      "id": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2"
+    },
+    "YpmBP8NIuXPd5865nImT3oZJhdN2": {
+      "email": "leduc1078@gmail.com",
+      "fullname": "Le Van Duc",
+      "id": "YpmBP8NIuXPd5865nImT3oZJhdN2"
+    },
+    "ksdEQPXiH2aLAFf09HDrqjB8Giq2": {
+      "email": "kacavof675@naobk.com",
+      "fullname": "Tran Van An",
+      "id": "ksdEQPXiH2aLAFf09HDrqjB8Giq2"
+    }
+  },
+  "users_classrooms": {
+    "-ONWUTiqv5j5r6_zMuNr": {
+      "idClassroom": "-ONWUTh72RGNuvZhBx9i",
+      "idUser": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2"
+    },
+    "-ONWVE9PR-wtGUtykfn3": {
+      "idClassroom": "-ONWUTh72RGNuvZhBx9i",
+      "idUser": "WGXtnGRLnVQYeRUSTAV5WnkH7ps2"
+    },
+    "-ONYkyDvvigiytMxTGVe": {
+      "idClassroom": "-ONYkyC3NA6_D7Ijj8JP",
+      "idUser": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2"
+    },
+    "-ONYl4xDWGdTpjyWm_uG": {
+      "idClassroom": "-ONYl4v9JCmEtS_E2rFX",
+      "idUser": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2"
+    },
+    "-ONYrb0hXHifLApPsK6b": {
+      "idClassroom": "-ONWUTh72RGNuvZhBx9i",
+      "idUser": "ksdEQPXiH2aLAFf09HDrqjB8Giq2"
+    },
+    "-ONYreSv9K9ewwGzQQ7e": {
+      "idClassroom": "-ONYkyC3NA6_D7Ijj8JP",
+      "idUser": "ksdEQPXiH2aLAFf09HDrqjB8Giq2"
+    },
+    "-ONYriXwFZY8w_xkhZGb": {
+      "idClassroom": "-ONYl4v9JCmEtS_E2rFX",
+      "idUser": "ksdEQPXiH2aLAFf09HDrqjB8Giq2"
+    },
+    "-ONZ2xmH8H8VoscuLi9L": {
+      "idClassroom": "-ONWUTh72RGNuvZhBx9i",
+      "idUser": "YpmBP8NIuXPd5865nImT3oZJhdN2"
+    },
+    "-ONZ4MfEjLeokOYIMCmt": {
+      "idClassroom": "-ONYkyC3NA6_D7Ijj8JP",
+      "idUser": "WGXtnGRLnVQYeRUSTAV5WnkH7ps2"
+    },
+    "-ONZ512p8EsjIACpfoiB": {
+      "idClassroom": "-ONYl4v9JCmEtS_E2rFX",
+      "idUser": "WGXtnGRLnVQYeRUSTAV5WnkH7ps2"
+    },
+    "-ONZ5UZdxoVegl1L8Fb_": {
+      "idClassroom": "-ONZ5UWZUbUsR8bG4TGF",
+      "idUser": "YpmBP8NIuXPd5865nImT3oZJhdN2"
+    },
+    "-ONZ8mEFoWwCVA_p7_kP": {
+      "idClassroom": "-ONZ5UWZUbUsR8bG4TGF",
+      "idUser": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2"
+    },
+    "-ONZLDJOovyAu_X2J6hF": {
+      "idClassroom": "-ONZLDGzVQ2FmdDM1iEg",
+      "idUser": "LUtKy9iBWuNAK6ItBJVnYPQ3mKD2"
+    },
+    "-ONZLdIXSn9xhEP6szkI": {
+      "idClassroom": "-ONZLdGaMTmara1WZG40",
+      "idUser": "LUtKy9iBWuNAK6ItBJVnYPQ3mKD2"
+    },
+    "-ONZLiijL_8bkEYeSvGs": {
+      "idClassroom": "-ONZLigEHD32pe6BSfUx",
+      "idUser": "LUtKy9iBWuNAK6ItBJVnYPQ3mKD2"
+    },
+    "-ONZPWI88PFTRjqQzohP": {
+      "idClassroom": "-ONZPWG82tQB9vJUcEXO",
+      "idUser": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2"
+    }
+  }
+}
