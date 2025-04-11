@@ -107,6 +107,44 @@
       "id": "-ONZP4CuWgYvcSVQvtKZ",
       "idExercise": "-ONZP4CtZB6N8vZ9QOO0",
       "uri": "https://firebasestorage.googleapis.com/v0/b/yourclassroom-6d328.firebasestorage.app/o/exercises%2FTTUD-10.pdf?alt=media&token=b1c03898-5288-4e69-83d2-3c8755073859"
+    },
+    "-ONZSh-km6qh2XLyUDtU": {
+      "filename": "Alpha_Beta.pdf",
+      "id": "-ONZSh-km6qh2XLyUDtU",
+      "idExercise": "-ONZSh-jj0Cv83_-vYI_",
+      "uri": "https://firebasestorage.googleapis.com/v0/b/yourclassroom-6d328.firebasestorage.app/o/exercises%2FAlpha_Beta.pdf?alt=media&token=9d00f9ea-85b7-4d32-a8d4-19c00bf15f0f"
+    },
+    "-ONZSp9ixuEkZWLZjvGq": {
+      "filename": "ThapHN.pdf",
+      "id": "-ONZSp9ixuEkZWLZjvGq",
+      "idExercise": "-ONZSp9ixuEkZWLZjvGp",
+      "uri": "https://firebasestorage.googleapis.com/v0/b/yourclassroom-6d328.firebasestorage.app/o/exercises%2FThapHN.pdf?alt=media&token=6f815b51-e549-4756-adf7-9394c360dd62"
+    },
+    "-ONZT7BkZbjpCZGcD9TV": {
+      "filename": "KGTT.pdf",
+      "id": "-ONZT7BkZbjpCZGcD9TV",
+      "idExercise": "-ONZT7Bjvn8On3sqBF7M",
+      "uri": "https://firebasestorage.googleapis.com/v0/b/yourclassroom-6d328.firebasestorage.app/o/exercises%2FKGTT.pdf?alt=media&token=7aa7e251-b40f-4ac8-b132-8d87c79436bd"
+    },
+    "-ONZT7BllM35YfW1RHMm": {
+      "filename": "TTNT.pdf",
+      "id": "-ONZT7BllM35YfW1RHMm",
+      "idExercise": "-ONZT7Bjvn8On3sqBF7M",
+      "uri": "https://firebasestorage.googleapis.com/v0/b/yourclassroom-6d328.firebasestorage.app/o/exercises%2FTTNT.pdf?alt=media&token=e4a31e8b-5546-459a-9004-7e7d40be795e"
+    },
+    "-ONZTtFXEPog9mEgxBNy": {
+      "filename": "De2_DFS.pdf",
+      "id": "-ONZTtFXEPog9mEgxBNy",
+      "idExercise": "-ONZTtFWdCvF0vLrZQdR",
+      "uri": "https://firebasestorage.googleapis.com/v0/b/yourclassroom-6d328.firebasestorage.app/o/exercises%2FDe2_DFS.pdf?alt=media&token=383d6048-f972-496e-a5d0-4a376b644f70"
+    },
+    "-ONZU1PB3nXIA2YziPMR": {
+      "filename": "KGTT.pdf",
+      "id": "-ONZU1PB3nXIA2YziPMR",
+      "idExercise": "-ONZ84uR_anCo9XvQ5dX",
+      "idSubmission": "-ONZU1PB3nXIA2YziPMQ",
+      "idUser": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2",
+      "uri": "https://firebasestorage.googleapis.com/v0/b/yourclassroom-6d328.firebasestorage.app/o/assignments%2FKGTT.pdf?alt=media&token=ffe9c73c-ebc6-46b1-873f-275faf59dc2b"
     }
   },
   "classrooms": {
@@ -443,6 +481,122 @@
       "idClass": "-ONYkyC3NA6_D7Ijj8JP",
       "instruction": "",
       "title": "Bài tập buổi 10"
+    },
+    "-ONZSh-jj0Cv83_-vYI_": {
+      "createAt": {
+        "date": 11,
+        "day": 5,
+        "hours": 17,
+        "minutes": 48,
+        "month": 3,
+        "seconds": 9,
+        "time": 1744368489327,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "expired": {
+        "date": 15,
+        "day": 2,
+        "hours": 17,
+        "minutes": 44,
+        "month": 3,
+        "seconds": 25,
+        "time": 1744713865272,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "id": "-ONZSh-jj0Cv83_-vYI_",
+      "idAuthor": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2",
+      "idClass": "-ONZPWG82tQB9vJUcEXO",
+      "instruction": "",
+      "title": "Bài tập Alpha Beta"
+    },
+    "-ONZSp9ixuEkZWLZjvGp": {
+      "createAt": {
+        "date": 11,
+        "day": 5,
+        "hours": 17,
+        "minutes": 48,
+        "month": 3,
+        "seconds": 42,
+        "time": 1744368522735,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "expired": {
+        "date": 14,
+        "day": 1,
+        "hours": 17,
+        "minutes": 48,
+        "month": 3,
+        "seconds": 18,
+        "time": 1744627698245,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "id": "-ONZSp9ixuEkZWLZjvGp",
+      "idAuthor": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2",
+      "idClass": "-ONZPWG82tQB9vJUcEXO",
+      "instruction": "",
+      "title": "Bài tập Tháp Hà Nội"
+    },
+    "-ONZT7Bjvn8On3sqBF7M": {
+      "createAt": {
+        "date": 11,
+        "day": 5,
+        "hours": 17,
+        "minutes": 50,
+        "month": 3,
+        "seconds": 0,
+        "time": 1744368600687,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "expired": {
+        "date": 14,
+        "day": 1,
+        "hours": 17,
+        "minutes": 49,
+        "month": 3,
+        "seconds": 18,
+        "time": 1744627758697,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "id": "-ONZT7Bjvn8On3sqBF7M",
+      "idAuthor": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2",
+      "idClass": "-ONZPWG82tQB9vJUcEXO",
+      "instruction": "",
+      "title": "Bài tập KGTT"
+    },
+    "-ONZTtFWdCvF0vLrZQdR": {
+      "createAt": {
+        "date": 11,
+        "day": 5,
+        "hours": 17,
+        "minutes": 53,
+        "month": 3,
+        "seconds": 21,
+        "time": 1744368801634,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "expired": {
+        "date": 15,
+        "day": 2,
+        "hours": 17,
+        "minutes": 52,
+        "month": 3,
+        "seconds": 56,
+        "time": 1744714376970,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "id": "-ONZTtFWdCvF0vLrZQdR",
+      "idAuthor": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2",
+      "idClass": "-ONZPWG82tQB9vJUcEXO",
+      "instruction": "",
+      "title": "Bài tập gỡ điểm"
     }
   },
   "posts": {
@@ -778,6 +932,100 @@
       "id": "-ONZRpVePO5Ly25kDhsg",
       "idClass": "-ONZPWG82tQB9vJUcEXO",
       "idUser": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2"
+    },
+    "-ONZSh0VInj_o5-JfbYK": {
+      "author": "Nguyen Trung Duc",
+      "content": "Bài tập Alpha Beta",
+      "createdAt": {
+        "date": 11,
+        "day": 5,
+        "hours": 17,
+        "minutes": 48,
+        "month": 3,
+        "seconds": 9,
+        "time": 1744368489534,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "id": "-ONZSh0VInj_o5-JfbYK",
+      "idClass": "-ONZPWG82tQB9vJUcEXO",
+      "idExercise": "-ONZSh-jj0Cv83_-vYI_",
+      "idUser": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2"
+    },
+    "-ONZSpARGQsNqrjeD8Jy": {
+      "author": "Nguyen Trung Duc",
+      "content": "Bài tập Tháp Hà Nội",
+      "createdAt": {
+        "date": 11,
+        "day": 5,
+        "hours": 17,
+        "minutes": 48,
+        "month": 3,
+        "seconds": 42,
+        "time": 1744368522925,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "id": "-ONZSpARGQsNqrjeD8Jy",
+      "idClass": "-ONZPWG82tQB9vJUcEXO",
+      "idExercise": "-ONZSp9ixuEkZWLZjvGp",
+      "idUser": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2"
+    },
+    "-ONZT7Cw2XJazMcKyA4m": {
+      "author": "Nguyen Trung Duc",
+      "content": "Bài tập KGTT",
+      "createdAt": {
+        "date": 11,
+        "day": 5,
+        "hours": 17,
+        "minutes": 50,
+        "month": 3,
+        "seconds": 1,
+        "time": 1744368601018,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "id": "-ONZT7Cw2XJazMcKyA4m",
+      "idClass": "-ONZPWG82tQB9vJUcEXO",
+      "idExercise": "-ONZT7Bjvn8On3sqBF7M",
+      "idUser": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2"
+    },
+    "-ONZTlDDmv64I7zDZcie": {
+      "author": "Nguyen Trung Duc",
+      "content": "Mỗi nhóm (4 người) sẽ thực hiện một dự án nhỏ về ứng dụng AI trong đời sống. Các em cần:\n- Xác định vấn đề thực tế mà AI có thể giải quyết.\n- Xây dựng mô hình AI để giải quyết vấn đề đó.",
+      "createdAt": {
+        "date": 11,
+        "day": 5,
+        "hours": 17,
+        "minutes": 52,
+        "month": 3,
+        "seconds": 48,
+        "time": 1744368768816,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "id": "-ONZTlDDmv64I7zDZcie",
+      "idClass": "-ONZPWG82tQB9vJUcEXO",
+      "idUser": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2"
+    },
+    "-ONZTtG8uAnqCUMlhhzR": {
+      "author": "Nguyen Trung Duc",
+      "content": "Bài tập gỡ điểm",
+      "createdAt": {
+        "date": 11,
+        "day": 5,
+        "hours": 17,
+        "minutes": 53,
+        "month": 3,
+        "seconds": 21,
+        "time": 1744368801865,
+        "timezoneOffset": -420,
+        "year": 125
+      },
+      "id": "-ONZTtG8uAnqCUMlhhzR",
+      "idClass": "-ONZPWG82tQB9vJUcEXO",
+      "idExercise": "-ONZTtFWdCvF0vLrZQdR",
+      "idUser": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2"
     }
   },
   "submissions": {
@@ -840,6 +1088,12 @@
       "idExercise": "-ONZ84uR_anCo9XvQ5dX",
       "idUser": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2",
       "score": 55
+    },
+    "-ONZU1PB3nXIA2YziPMQ": {
+      "id": "-ONZU1PB3nXIA2YziPMQ",
+      "idExercise": "-ONZ84uR_anCo9XvQ5dX",
+      "idUser": "XPn2jj3ShfZ052EY9NJXb8OXbxJ2",
+      "score": 0
     }
   },
   "users": {
