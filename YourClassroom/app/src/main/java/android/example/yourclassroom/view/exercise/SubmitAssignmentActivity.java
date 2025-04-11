@@ -46,6 +46,7 @@ public class SubmitAssignmentActivity extends AppCompatActivity implements Attac
     private Intent intent;
     private Exercise exercise;
     private String idUser;
+    private String idTeacher;
 
     private TextView title, author, createdAt, expired, instruction, score;
     private ListView topicListView;
@@ -67,6 +68,7 @@ public class SubmitAssignmentActivity extends AppCompatActivity implements Attac
         topicList = new ArrayList<>();
         exercise = (Exercise) intent.getSerializableExtra("exercise");
         idUser = intent.getStringExtra("idUser");
+        idTeacher = intent.getStringExtra("idTeacher");
 
 //      Binding
         title = findViewById(R.id.submit_assignment_exercise_title);
@@ -83,7 +85,7 @@ public class SubmitAssignmentActivity extends AppCompatActivity implements Attac
 
 //        Gan gia tri vao cac TextView va ListView
         title.setText(exercise.getTitle());
-        UserRepository.getNameById(idUser, new ValueCallback<String>() {
+        UserRepository.getNameById(idTeacher, new ValueCallback<String>() {
             @Override
             public void onReceiveValue(String value) {
                 author.setText(value);

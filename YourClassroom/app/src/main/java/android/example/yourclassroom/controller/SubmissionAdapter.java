@@ -13,11 +13,16 @@ import android.example.yourclassroom.repository.UserRepository;
 import android.example.yourclassroom.view.exercise.GradeActivity;
 import android.example.yourclassroom.view.exercise.SubmitAssignmentActivity;
 import android.net.Uri;
+import android.text.Editable;
+import android.text.InputFilter;
+import android.text.Spanned;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.ValueCallback;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -88,6 +93,51 @@ public class SubmissionAdapter extends RecyclerView.Adapter<SubmissionAdapter.Su
                 Toast.makeText(context, "No application found to open this file", Toast.LENGTH_SHORT).show();
             }
         });
+
+        holder.score.addTextChangedListener(new TextWatcher() {
+            private String previousText = "";
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                previousText = s.toString();
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                holder.score.removeTextChangedListener(this);
+
+                String input = s.toString();
+
+                if (input.isEmpty()) {
+                    holder.score.addTextChangedListener(this);
+                    return;
+                }
+
+                // Xóa số 0 ở đầu nếu có (trừ khi chỉ nhập "0")
+                if (input.length() > 1 && input.startsWith("0")) {
+                    input = input.replaceFirst("^0+", ""); // loại bỏ các số 0 đứng đầu
+                    if (input.isEmpty()) input = "0";
+                }
+
+                try {
+                    int value = Integer.parseInt(input);
+                    if (value > 100) {
+                        input = input.substring(0, input.length() - 1);
+                    }
+
+                    holder.score.setText(input);
+                    holder.score.setSelection(input.length());
+                } catch (NumberFormatException e) {
+                    holder.score.setText(previousText);
+                    holder.score.setSelection(previousText.length());
+                }
+
+                holder.score.addTextChangedListener(this);
+            }
+        });
     }
 
     @Override
@@ -99,7 +149,8 @@ public class SubmissionAdapter extends RecyclerView.Adapter<SubmissionAdapter.Su
     }
 
     class SubmissionHolder extends RecyclerView.ViewHolder{
-        private TextView name, score;
+        private TextView name;
+        private EditText score;
         private ListView assignmentListView;
 
         public SubmissionHolder(@NonNull View itemView) {

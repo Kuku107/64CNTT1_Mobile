@@ -32,10 +32,9 @@ public class AttachmentRepository {
                     .addOnSuccessListener(taskSnapshot -> {
                         fileRef.getDownloadUrl().addOnSuccessListener(uri -> {
                             String downloadUrl = uri.toString();
-                            Log.d("DOWNLOAD_ABLE URL", downloadUrl);
                             file.setUri(downloadUrl);
                             attachmentRef.child(file.getId()).child("uri").setValue(downloadUrl);
-                            Toast.makeText(context, "Tải lên thành công: " + downloadUrl, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "Tải file lên thành công: ", Toast.LENGTH_SHORT).show();
                         });
                     })
                     .addOnFailureListener(e -> {

@@ -114,6 +114,7 @@ public class ListExerciseActivity extends AppCompatActivity implements ExerciseA
             Intent submitAssignmentIntent = new Intent(ListExerciseActivity.this, SubmitAssignmentActivity.class);
             submitAssignmentIntent.putExtra("exercise", exercise);
             submitAssignmentIntent.putExtra("idUser", idUser);
+            submitAssignmentIntent.putExtra("idTeacher", idTeacher);
             startActivity(submitAssignmentIntent);
         }
 

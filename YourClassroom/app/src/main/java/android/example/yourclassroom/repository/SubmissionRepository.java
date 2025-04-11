@@ -62,7 +62,7 @@ public class SubmissionRepository {
 
     public static void updateScore(String idUser, String idExercise, String score) {
         DatabaseReference submissionRef = database.getReference("submissions");
-        submissionRef.addValueEventListener(new ValueEventListener() {
+        submissionRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot snapShot : snapshot.getChildren()) {
@@ -73,9 +73,10 @@ public class SubmissionRepository {
                         return;
                     }
                 }
-//                Hoc sinh chua nop bai
+
+                // Học sinh chưa nộp bài
                 String submissionId = submissionRef.push().getKey();
-                Submission newSubmission = new Submission( Integer.parseInt(score), idExercise, idUser);
+                Submission newSubmission = new Submission(Integer.parseInt(score), idExercise, idUser);
                 newSubmission.setId(submissionId);
                 submissionRef.child(submissionId).setValue(newSubmission);
             }

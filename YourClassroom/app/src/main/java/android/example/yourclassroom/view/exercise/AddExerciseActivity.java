@@ -112,7 +112,7 @@ public class AddExerciseActivity extends AppCompatActivity implements Attachment
             String instruction = edtInstruction.getText().toString();
             Date expiredDate = calendar.getTime();
 
-            if (expiredDate.before(new Date())) {
+            if (expiredDate.getTime() < (new Date()).getTime()) {
                 Toast.makeText(this, "Ngày hết hạn không hợp lệ", Toast.LENGTH_SHORT).show();
                 return;
             }

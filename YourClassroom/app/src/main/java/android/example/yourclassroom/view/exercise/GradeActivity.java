@@ -104,7 +104,6 @@ public class GradeActivity extends AppCompatActivity {
                     EditText scoreEdt = itemView.findViewById(R.id.grade_item_student_score);
                     String score = scoreEdt.getText().toString();
                     SubmissionRepository.updateScore(students.get(i).getId(), idExercise, score);
-//                    Log.d("GradeActivity", "Student name: " + students.get(i).getFullname() + ", Score: " + score);
                 }
                 finish();
             }
