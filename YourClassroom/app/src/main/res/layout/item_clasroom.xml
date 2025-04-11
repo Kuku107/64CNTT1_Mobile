@@ -1,59 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="400px"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/cardview"
-    app:cardCornerRadius="30dp"
-    android:layout_marginBottom="15dp">
+    android:layout_width="match_parent"
+    android:layout_height="130dp"
+    android:layout_marginBottom="16dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="8dp"
+    android:background="@drawable/cardview">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="16dp"
         android:background="@drawable/cardview">
 
-        <LinearLayout
-            android:layout_marginTop="50sp"
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/imv_more"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="-8dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/more_vert"/>
+
+        <TextView
+            android:id="@+id/tv_classname"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:text="Tên lớp học"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/tv_classname"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingRight="12dp"
-                android:layout_marginLeft="20dp"
-                android:textColor="@color/white"
-                android:textSize="30dp"/>
-
-            <!-- Thêm một LinearLayout con để căn chỉnh phải -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="end"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/tv_codeclass"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingRight="12dp"
-                    android:layout_marginRight="10dp"
-                    android:textSize="25dp"
-                    android:textColor="@color/white"/>
-
-                <ImageView
-                    android:id="@+id/imv_more"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:src="@drawable/more_vert"
-                    android:layout_marginRight="10dp"/>
-            </LinearLayout>
-
-        </LinearLayout>
-    </LinearLayout>
-
+        <!-- Mã lớp - dưới cùng bên trái -->
+        <TextView
+            android:id="@+id/tv_codeclass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:text="Mã lớp: ABC123"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </RelativeLayout>
 </androidx.cardview.widget.CardView>
-
-
