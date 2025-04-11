@@ -54,21 +54,25 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
         // Khoi tao danh sach dinh kem va adapter de hien thi
         List<Attachment> attachmentList = new ArrayList<>();
         List<String> fileNames = new ArrayList<>();
-//        ArrayAdapter<String> topicAdapter = new ArrayAdapter<>(itemView.getContext(), android.R.layout.simple_list_item_1, fileNames);
         ArrayAdapter<String> topicAdapter = new ArrayAdapter<>(itemView.getContext(), R.layout.item_attachment, R.id.tv_filename, fileNames);
         lvAttachment.setAdapter(topicAdapter);
 
-        AttachmentRepository.getAllAttachmentByIdExercise(post.getIdExercise(), new ValueCallback<Attachment>() {
-            @Override
-            public void onReceiveValue(Attachment value) {
-                attachmentList.add(value);
-                fileNames.add(value.getFilename());
-                topicAdapter.notifyDataSetChanged();
+        if (post.getIdExercise() != null && !post.getIdExercise().isEmpty()) {
+            lvAttachment.setVisibility(View.VISIBLE);
 
-                // Cập nhật chiều cao sau khi thêm item
-                setListViewHeightBasedOnChildren(lvAttachment, 2);
-            }
-        });
+            AttachmentRepository.getAllAttachmentByIdExercise(post.getIdExercise(), new ValueCallback<Attachment>() {
+                @Override
+                public void onReceiveValue(Attachment value) {
+                    attachmentList.add(value);
+                    fileNames.add(value.getFilename());
+                    topicAdapter.notifyDataSetChanged();
+
+                    setListViewHeightBasedOnChildren(lvAttachment, 2);
+                }
+            });
+        } else {
+            lvAttachment.setVisibility(View.GONE);
+        }
 
 
         lvAttachment.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -115,7 +119,7 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
 
     }
 
-    // Ham tu dong dieu chinh chieu cao cua ListView dua tren so item (gioi han toi da)
+    // Dieu chinh chieu cao cua ListView dua tren so item (gioi han toi da)
     public static void setListViewHeightBasedOnChildren(ListView listView, int maxVisibleItems) {
         android.widget.ListAdapter listAdapter = listView.getAdapter();
         if (listAdapter == null) return;
