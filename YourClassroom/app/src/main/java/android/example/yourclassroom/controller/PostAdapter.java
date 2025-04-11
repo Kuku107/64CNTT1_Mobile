@@ -79,7 +79,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostViewHolder> {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(context, "Lấy dữ liệu thất bại", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Lấy danh sách tin thất bại", Toast.LENGTH_SHORT).show();
             }
         });
     }

@@ -90,7 +90,7 @@ public class SubmissionAdapter extends RecyclerView.Adapter<SubmissionAdapter.Su
             try {
                 context.startActivity(intent);
             } catch (ActivityNotFoundException e) {
-                Toast.makeText(context, "No application found to open this file", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Không có ứng dụng thích hợp để đọc tệp tin", Toast.LENGTH_SHORT).show();
             }
         });
 

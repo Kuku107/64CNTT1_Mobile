@@ -117,7 +117,7 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.Exerci
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Log.e("ExerciseAdapter", "Failed to read exercise data", error.toException());
-                Toast.makeText(context, "Failed to load exercises", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Không tải được bài tập", Toast.LENGTH_SHORT).show();
             }
         });
     }

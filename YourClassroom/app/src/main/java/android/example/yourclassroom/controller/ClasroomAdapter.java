@@ -166,7 +166,7 @@ public class ClasroomAdapter extends RecyclerView.Adapter<ClassViewHolder> {
             Classroom classroom = new Classroom(newId, classname, generatedCode, currentUserId);
             classRef.child(newId).setValue(classroom)
                     .addOnSuccessListener(aVoid -> {
-                            Toast.makeText(context, "Thêm thành công!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "Tạo mới lớp học thành công!", Toast.LENGTH_SHORT).show();
                             String users_classrooms_id = joinRef.push().getKey();
                             if (users_classrooms_id != null) {
                                 joinRef.child(users_classrooms_id).child("idClassroom").setValue(classroom.getId());
@@ -174,7 +174,7 @@ public class ClasroomAdapter extends RecyclerView.Adapter<ClassViewHolder> {
                             }
                     })
                     .addOnFailureListener(e ->
-                            Toast.makeText(context, "Thêm thất bại!", Toast.LENGTH_SHORT).show());
+                            Toast.makeText(context, "Tạo mới lớp học thất bại!", Toast.LENGTH_SHORT).show());
         }
     }
 
@@ -223,12 +223,12 @@ public class ClasroomAdapter extends RecyclerView.Adapter<ClassViewHolder> {
                         DatabaseReference myRef = FirebaseDatabase.getInstance(databaseUrl).getReference("classrooms").child(classroom.getId());
                         myRef.removeValue()
                                 .addOnSuccessListener(aVoid -> {
-                                    Toast.makeText(context, "Xóa thành công!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(context, "Xóa lớp thành công!", Toast.LENGTH_SHORT).show();
                                     classroomList.remove(classroom);
                                     notifyDataSetChanged();
                                 })
                                 .addOnFailureListener(e ->
-                                        Toast.makeText(context, "Xóa thất bại!", Toast.LENGTH_SHORT).show());
+                                        Toast.makeText(context, "Xóa lớp thất bại!", Toast.LENGTH_SHORT).show());
                     }
                 })
                 .setNegativeButton("Hủy", (dialog, which) -> dialog.dismiss())

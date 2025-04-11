@@ -30,7 +30,7 @@ public class PostRepository {
                 myRef.child(newId).setValue(post, new DatabaseReference.CompletionListener() {
                     @Override
                     public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
-                        Toast.makeText(context, "Thêm thành công!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "Tạo tin mới thành công!", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -50,7 +50,7 @@ public class PostRepository {
                 myRef.child(newId).setValue(post, new DatabaseReference.CompletionListener() {
                     @Override
                     public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
-                        Toast.makeText(context, "Thêm thành công!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "Thông báo bài tập thành công!", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -68,10 +68,10 @@ public class PostRepository {
 
             myRef.removeValue()
                     .addOnSuccessListener(aVoid -> {
-                        Toast.makeText(context, "Xóa thành công!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "Xóa tin thành công!", Toast.LENGTH_SHORT).show();
                     })
                     .addOnFailureListener(e -> {
-                        Toast.makeText(context, "Xóa thất bại!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "Xóa tin thất bại!", Toast.LENGTH_SHORT).show();
                     });
         });
 

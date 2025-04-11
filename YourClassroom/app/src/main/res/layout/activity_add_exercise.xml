@@ -48,11 +48,13 @@
 
             <Button
                 android:id="@+id/btn_assign_exercise"
-                android:layout_width="wrap_content"
+                android:layout_width="108dp"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:text="Giao bài" />
+                android:background="#1A73E8"
+                android:text="Giao bài"
+                android:textColor="#FFFFFF" />
         </LinearLayout>
 
     </androidx.appcompat.widget.Toolbar>
